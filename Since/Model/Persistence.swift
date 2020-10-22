@@ -9,12 +9,21 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
+    
+    static let weddingDatecomponents = DateComponents.init(calendar: Calendar.current, timeZone: TimeZone.current, year: 2013, month: 2, day: 16, hour: 15, minute: 0, second: 0)
+    static let userCalendar = Calendar.current
+    static let weddingDate = userCalendar.date(from: weddingDatecomponents)
+
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newItem = SinceEvent(context: viewContext)
+            newItem.title = "Wedding"
+            newItem.image = "married"
+            newItem.details = "Got married"
+            newItem.date = weddingDate
             newItem.timestamp = Date()
         }
         do {

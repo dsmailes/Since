@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SinceItemListView: View {
     
@@ -26,7 +27,7 @@ struct SinceItemListView: View {
                     .fontWeight(.medium)
                     .lineLimit(2)
                 
-                Text(event.title!)
+                Text(verbatim: event.title!)
                     .font(.title2)
                     .fontWeight(.medium)
             
@@ -36,7 +37,18 @@ struct SinceItemListView: View {
 }
 
 struct SinceItemListView_Previews: PreviewProvider {
+    
+    static let moc = PersistenceController().container.viewContext
+
     static var previews: some View {
-        SinceItemListView(event: <#SinceEvent#>)
+        
+        let dEvent = SinceEvent(context: moc)
+        
+        dEvent.title = "Wedding"
+        dEvent.date = Date()
+        dEvent.image = "married"
+        dEvent.details = "Got married."
+        
+        return SinceItemListView(event: dEvent)
     }
 }
