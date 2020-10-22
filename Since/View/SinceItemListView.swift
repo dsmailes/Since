@@ -20,18 +20,22 @@ struct SinceItemListView: View {
                 .frame(width: 90, height: 90)
                 .clipShape(RoundedRectangle(cornerRadius: 12.0))
     
+            Spacer()
+            
             VStack(alignment: .leading, spacing: 8) {
                 
-                Text(String(Date().years(from: event.date!)) + " years since")
+                Text(String(Date().years(from: event.date!)) + " years")
                     .font(.title3)
                     .fontWeight(.medium)
                     .lineLimit(2)
+                    .multilineTextAlignment(.trailing)
                 
                 Text(verbatim: event.title!)
                     .font(.title2)
                     .fontWeight(.medium)
-            
+                    .multilineTextAlignment(.trailing)
             } // VStack
+            
         } // HStack
     }
 }
@@ -50,5 +54,9 @@ struct SinceItemListView_Previews: PreviewProvider {
         dEvent.details = "Got married."
         
         return SinceItemListView(event: dEvent)
+            .previewLayout(.sizeThatFits)
+            .padding()
+        
     }
+    
 }

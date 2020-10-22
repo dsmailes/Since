@@ -9,29 +9,35 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    
+    @State private var showingAddEventView: Bool = false
+    
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \SinceEvent.timestamp, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<SinceEvent>
+    
+    private var events: FetchedResults<SinceEvent>
 
     var body: some View {
-        List {
-            ForEach(items) { item in
-                SinceItemListView(event: item)
+        
+            List {
+                ForEach(events) { item in
+                    SinceItemListView(event: item)
+                }
+                .onDelete(perform: deleteItems)
             }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
+            .toolbar {
+                #if os(iOS)
+                EditButton()
+                #endif
 
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
+                Button(action: addItem) {
+                    Label("Add Item", systemImage: "plus")
+                }
             }
-        }
+        
     }
 
     private func addItem() {
@@ -52,7 +58,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { events[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
