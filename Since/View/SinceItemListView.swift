@@ -12,6 +12,8 @@ struct SinceItemListView: View {
     
     let event: SinceEvent
     
+    var timeString: String = ""
+    
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             if event.image != nil {
@@ -20,42 +22,80 @@ struct SinceItemListView: View {
                     Image(uiImage: img)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 90, height: 90)
+                        .frame(width: 120, height: 120)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                        .padding()
                 } else {
                     Image("sincelogo")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 90, height: 90)
+                        .frame(width: 120, height: 120)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                        .padding()
                 }
                 
             } else {
                 Image("sincelogo")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 90, height: 90)
+                    .frame(width: 120, height: 120)
                     .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                    .padding()
             }
             
-    
             //Spacer()
             
             VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Spacer()
+                    
+                    Text(verbatim: event.title!)
+                        .font(.largeTitle)
+                        .fontWeight(.medium)
+                        .multilineTextAlignment(.center)
+                    
+                    Spacer()
+                    
+                } // hstack
+            
+                HStack {
+                    Spacer()
+                    VStack {
+                        if event.displayyears {
+                            Text(String(Date().years(from: event.date!)) + " years")
+                                .font(.footnote)
+                                .fontWeight(.medium)
+                                .lineLimit(1)
+                                .multilineTextAlignment(.leading)
+                        }
+                        
+                        if event.displaydays {
+                            Text(String(Date().days(from: event.date!)) + " days")
+                                .font(.footnote)
+                                .fontWeight(.medium)
+                                .lineLimit(1)
+                                .multilineTextAlignment(.leading)
+                        }
+                        if event.displayhours {
+                            Text(String(Date().hours(from: event.date!)) + " hours")
+                                .font(.footnote)
+                                .fontWeight(.medium)
+                                .lineLimit(1)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        
+                        if event.displayminutes {
+                            Text(String(Date().minutes(from: event.date!)) + " minutes")
+                                .font(.footnote)
+                                .fontWeight(.medium)
+                                .lineLimit(1)
+                                .multilineTextAlignment(.trailing)
+                        }
+                    } // vstack
+                    Spacer()
+                } // hstack
                 
-                Text(verbatim: event.title!)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.leading)
-                
-                Text(String(Date().years(from: event.date!)) + " years")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.trailing)
-                
-                
-                
+               
             } // VStack
             
         } // HStack
@@ -74,6 +114,10 @@ struct SinceItemListView_Previews: PreviewProvider {
         dEvent.date = Date()
         dEvent.image = "married"
         dEvent.details = "Got married."
+        dEvent.displaydays = true
+        dEvent.displayyears = true
+        dEvent.displayhours = true
+        dEvent.displayminutes = true
         
         return SinceItemListView(event: dEvent)
             .previewLayout(.sizeThatFits)

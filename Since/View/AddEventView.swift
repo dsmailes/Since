@@ -63,6 +63,11 @@ struct AddEventView: View {
                 print(error)
             }
             
+        } else {
+            self.errorShowing = true
+            self.errorTitle = "Missing event name"
+            self.errorMessage = "Please enter a name for the event"
+            return
         }
         
     }
@@ -122,6 +127,13 @@ struct AddEventView: View {
                             .foregroundColor(Color.white)
                             .cornerRadius(12.0)
                             
+                            if inputImage != nil {
+                                Image(uiImage: inputImage!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .cornerRadius(12.0)
+                            }
+                            
                             Button("Save") {
                                 saveEvent()
                             }
@@ -133,8 +145,12 @@ struct AddEventView: View {
                             .cornerRadius(12.0)
                         }
             
-                    }
+                    } // form
+                    
                 } // vstack
+                .alert(isPresented: $errorShowing) {
+                    Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                }
             } // ZStack
             .navigationBarTitle("", displayMode: .inline)
             .edgesIgnoringSafeArea([.top, .bottom])

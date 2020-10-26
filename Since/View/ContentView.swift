@@ -19,7 +19,7 @@ struct ContentView: View {
         animation: .default)
     
     private var events: FetchedResults<SinceEvent>
-
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -69,7 +69,22 @@ private let itemFormatter: DateFormatter = {
 }()
 
 struct ContentView_Previews: PreviewProvider {
+    
+    static let moc = PersistenceController().container.viewContext
+    
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        
+        let dEvent = SinceEvent(context: moc)
+        
+        dEvent.title = "Wedding"
+        dEvent.date = Date()
+        dEvent.image = "married"
+        dEvent.details = "Got married."
+        dEvent.displaydays = true
+        dEvent.displayyears = true
+        dEvent.displayhours = true
+        dEvent.displayminutes = true
+        
+        return ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

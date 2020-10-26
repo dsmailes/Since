@@ -22,6 +22,10 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs to access the photo library to attach an image to an event.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>SelectEventIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
