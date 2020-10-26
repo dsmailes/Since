@@ -14,15 +14,39 @@ struct SinceItemListView: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            Image(event.image!)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 90, height: 90)
-                .clipShape(RoundedRectangle(cornerRadius: 12.0))
+            if event.image != nil {
+                
+                if let img = ImageHandler.sharedInstance.retrieveImage(forKey: event.image!, inStorageType: .fileSystem) {
+                    Image(uiImage: img)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 90, height: 90)
+                        .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                } else {
+                    Image("sincelogo")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 90, height: 90)
+                        .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                }
+                
+            } else {
+                Image("sincelogo")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 90, height: 90)
+                    .clipShape(RoundedRectangle(cornerRadius: 12.0))
+            }
+            
     
-            Spacer()
+            //Spacer()
             
             VStack(alignment: .leading, spacing: 8) {
+                
+                Text(verbatim: event.title!)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.leading)
                 
                 Text(String(Date().years(from: event.date!)) + " years")
                     .font(.title3)
@@ -30,10 +54,8 @@ struct SinceItemListView: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.trailing)
                 
-                Text(verbatim: event.title!)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.trailing)
+                
+                
             } // VStack
             
         } // HStack

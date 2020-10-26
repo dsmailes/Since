@@ -3,12 +3,16 @@
     <entity name="SinceEvent" representedClassName="SinceEvent" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="displaydays" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="displayhours" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="displayminutes" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="displayyears" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="SinceEvent" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="SinceEvent" positionX="-63" positionY="-18" width="128" height="193"/>
     </elements>
 </model>

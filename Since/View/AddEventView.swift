@@ -20,6 +20,10 @@ struct AddEventView: View {
     @State private var image: String = ""
     @State private var timestamp = Date()
     @State private var title: String = ""
+    @State private var displayYear: Bool = true
+    @State private var displayDays: Bool = true
+    @State private var displayHours: Bool = true
+    @State private var displayMinutes: Bool = false
     
     @State private var inputImage: UIImage?
     @State private var eventImage: Image?
@@ -41,6 +45,10 @@ struct AddEventView: View {
             event.details = self.details
             event.title = self.title
             event.date = self.date
+            event.displaydays = self.displayDays
+            event.displayhours = self.displayHours
+            event.displayminutes = self.displayMinutes
+            event.displayyears = self.displayYear
             
             if inputImage != nil {
                 event.image = imageHandler.randomString(length: 20)
@@ -64,41 +72,76 @@ struct AddEventView: View {
             ZStack {
                 VStack {
                     Form {
-                        TextField("Since", text: $title)
-                            .padding()
-                            .background(Color(UIColor.lightGray))
-                            .cornerRadius(12.0)
-                            .font(.system(size: 24, weight: .bold, design: .default))
-                        TextField("Details", text: $details)
-                            .padding()
-                            .background(Color(UIColor.lightGray))
-                            .cornerRadius(12.0)
-                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                            .font(.system(size: 20, weight: .medium, design: .default))
-                        DatePicker("Date", selection: $date)
+                        Section(header: Text("Title and details")) {
+                            TextField("Event", text: $title)
                                 .padding()
-                        Button("Add photo") {
-                            self.showingImagePicker = true
+                                .background(Color(UIColor.lightGray))
+                                .cornerRadius(12.0)
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                            TextField("Details", text: $details)
+                                .padding()
+                                .background(Color(UIColor.lightGray))
+                                .cornerRadius(12.0)
+                                .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                                .font(.system(size: 20, weight: .medium, design: .default))
                         }
-                        .font(.system(size: 24, weight: .bold, design: .default))
-                        .padding()
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(Color(UIColor.systemBlue))
-                        .foregroundColor(Color.white)
-                        .cornerRadius(12.0)
-                        Button("Save") {
-                            saveEvent()
+                        
+                        Section(header: Text("Date")) {
+                            DatePicker("Date", selection: $date)
+                                    .padding()
                         }
-                        .font(.system(size: 24, weight: .bold, design: .default))
-                        .padding()
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(Color(UIColor.systemTeal))
-                        .foregroundColor(Color.white)
-                        .cornerRadius(12.0)
+                        
+                        Section(header: Text("Display settings")) {
+                            VStack {
+                                Toggle("Display years:", isOn: $displayYear)
+                                
+                                Divider()
+                                
+                                Toggle("Display days:", isOn: $displayDays)
+                                    
+                                Divider()
+                                
+                                Toggle("Display hours:", isOn: $displayHours)
+                                    
+                                Divider()
+                                
+                                Toggle("Display minutes:", isOn: $displayMinutes)
+                                    
+                                
+                            }
+                        }
+                        
+                        Section(header: Text("Finishing touches")) {
+                            Button("Add photo") {
+                                self.showingImagePicker = true
+                            }
+                            .font(.system(size: 24, weight: .bold, design: .default))
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color(UIColor.systemBlue))
+                            .foregroundColor(Color.white)
+                            .cornerRadius(12.0)
+                            
+                            Button("Save") {
+                                saveEvent()
+                            }
+                            .font(.system(size: 24, weight: .bold, design: .default))
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color(UIColor.systemTeal))
+                            .foregroundColor(Color.white)
+                            .cornerRadius(12.0)
+                        }
+            
                     }
                 } // vstack
             } // ZStack
+            .navigationBarTitle("", displayMode: .inline)
+            .edgesIgnoringSafeArea([.top, .bottom])
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         } // nav
+        
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(image: self.$inputImage)
         }

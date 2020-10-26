@@ -24,7 +24,7 @@ struct ContentView: View {
         NavigationView {
             ZStack{
                 List {
-                    ForEach(events) { item in
+                    ForEach(self.events, id: \.self) { item in
                         SinceItemListView(event: item)
                     }
                     .onDelete(perform: deleteItems)
@@ -37,6 +37,7 @@ struct ContentView: View {
                     }
                 }
                 .navigationBarTitle("Since...", displayMode: .large)
+                .listStyle(InsetListStyle())
             } // zstack
             .sheet(isPresented: $showingAddEventView) {
                 AddEventView().environment(\.managedObjectContext, self.viewContext)
