@@ -21,7 +21,7 @@ struct ContentView: View {
     private var events: FetchedResults<SinceEvent>
 
     var body: some View {
-        
+        NavigationView {
             List {
                 ForEach(events) { item in
                     SinceItemListView(event: item)
@@ -37,6 +37,9 @@ struct ContentView: View {
                     Label("Add Item", systemImage: "plus")
                 }
             }
+            .navigationBarTitle("Since...", displayMode: .large)
+        }
+
         
     }
 

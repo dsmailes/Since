@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    
     var body: some View {
         TabView {
             ContentView()
@@ -15,20 +16,27 @@ struct MainView: View {
                     Text("List")
                     Image(systemName: "list.bullet")
                 }
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             WidgetSettingsView()
                 .tabItem {
                     Text("Widget")
+                    Image(systemName: "macwindow")
                 }
             SettingsView()
                 .tabItem {
                     Text("Settings")
+                    Image(systemName: "hammer")
                 }
         } // tabview
+        
     }
 }
 
 struct MainView_Previews: PreviewProvider {
+    
+    let persistenceController = PersistenceController.shared
+    
     static var previews: some View {
-        MainView()
+        MainView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
