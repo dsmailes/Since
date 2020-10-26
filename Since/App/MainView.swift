@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    let persistenceController = PersistenceController.shared
+    
     var body: some View {
         TabView {
             ContentView()
@@ -16,7 +18,7 @@ struct MainView: View {
                     Text("List")
                     Image(systemName: "list.bullet")
                 }
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             WidgetSettingsView()
                 .tabItem {
                     Text("Widget")

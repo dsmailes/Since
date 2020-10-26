@@ -19,6 +19,8 @@
 		34BE36292541F69A0032D3A7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36282541F69A0032D3A7 /* MainView.swift */; };
 		34BE362C2541F89B0032D3A7 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */; };
 		34BE362F2541F8B30032D3A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE362E2541F8B30032D3A7 /* SettingsView.swift */; };
+		34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36322546E21A0032D3A7 /* ImagePicker.swift */; };
+		34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36392546E7C60032D3A7 /* ImageHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		34BE36282541F69A0032D3A7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		34BE362E2541F8B30032D3A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		34BE36322546E21A0032D3A7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		34BE36392546E7C60032D3A7 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			children = (
 				34BE36002541EA420032D3A7 /* SinceApp.swift */,
 				34BE36282541F69A0032D3A7 /* MainView.swift */,
+				34BE36392546E7C60032D3A7 /* ImageHandler.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 				34BE36252541F5740032D3A7 /* AddEventView.swift */,
 				34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */,
 				34BE362E2541F8B30032D3A7 /* SettingsView.swift */,
+				34BE36322546E21A0032D3A7 /* ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,8 +207,10 @@
 				34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */,
 				34BE362F2541F8B30032D3A7 /* SettingsView.swift in Sources */,
 				34BE362C2541F89B0032D3A7 /* WidgetSettingsView.swift in Sources */,
+				34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */,
 				34BE360A2541EA430032D3A7 /* Persistence.swift in Sources */,
 				34BE36032541EA420032D3A7 /* ContentView.swift in Sources */,
+				34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */,
 				34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -366,7 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
