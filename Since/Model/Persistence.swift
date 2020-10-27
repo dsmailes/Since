@@ -24,7 +24,6 @@ struct PersistenceController {
             newItem.image = "married"
             newItem.details = "Got married"
             newItem.date = weddingDate
-            newItem.timestamp = Date()
         }
         do {
             try viewContext.save()

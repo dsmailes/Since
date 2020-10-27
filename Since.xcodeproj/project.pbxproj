@@ -30,6 +30,10 @@
 		34BE3669254728160032D3A7 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE3668254728160032D3A7 /* AppGroup.swift */; };
 		34BE366C25472A110032D3A7 /* SinceWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE3659254725580032D3A7 /* SinceWidgetView.swift */; };
 		34BE366F25472A4E0032D3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE36042541EA430032D3A7 /* Assets.xcassets */; };
+		34BE36CC25480B550032D3A7 /* WidgetSinceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36CB25480B550032D3A7 /* WidgetSinceEvent.swift */; };
+		34BE36CD25480B550032D3A7 /* WidgetSinceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36CB25480B550032D3A7 /* WidgetSinceEvent.swift */; };
+		34BE36D025480EA30032D3A7 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36392546E7C60032D3A7 /* ImageHandler.swift */; };
+		34BE36D3254810350032D3A7 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE3668254728160032D3A7 /* AppGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,7 @@
 		34BE36602547261A0032D3A7 /* Since WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Since WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		34BE3668254728160032D3A7 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		34BE368625472DAD0032D3A7 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		34BE36CB25480B550032D3A7 /* WidgetSinceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSinceEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +183,7 @@
 				34BE360B2541EA430032D3A7 /* Since.xcdatamodeld */,
 				34BE36092541EA430032D3A7 /* Persistence.swift */,
 				34BE3668254728160032D3A7 /* AppGroup.swift */,
+				34BE36CB25480B550032D3A7 /* WidgetSinceEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34BE360D2541EA430032D3A7 /* Since.xcdatamodeld in Sources */,
+				34BE36CC25480B550032D3A7 /* WidgetSinceEvent.swift in Sources */,
 				34BE36292541F69A0032D3A7 /* MainView.swift in Sources */,
 				34BE36262541F5740032D3A7 /* AddEventView.swift in Sources */,
 				34BE3669254728160032D3A7 /* AppGroup.swift in Sources */,
@@ -349,7 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BE36D3254810350032D3A7 /* AppGroup.swift in Sources */,
 				34BE3649254724910032D3A7 /* Since_Widget.swift in Sources */,
+				34BE36CD25480B550032D3A7 /* WidgetSinceEvent.swift in Sources */,
+				34BE36D025480EA30032D3A7 /* ImageHandler.swift in Sources */,
 				34BE366C25472A110032D3A7 /* SinceWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

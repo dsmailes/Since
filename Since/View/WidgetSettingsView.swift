@@ -20,8 +20,6 @@ struct WidgetSettingsView: View {
     
     private var events: FetchedResults<SinceEvent>
     
-    @AppStorage("widgetData", store: UserDefaults(suiteName: "group.com.mylearningapps.since")) var widgetData: SinceEvent
-    
     var body: some View {
         NavigationView {
             ZStack{
@@ -30,7 +28,7 @@ struct WidgetSettingsView: View {
                         SinceItemListView(event: item)
                             .onTapGesture {
                                 print(item)
-                                widgetData = item
+                                saveWidgetData(item: item)
                             }
                     }
                     
@@ -43,6 +41,23 @@ struct WidgetSettingsView: View {
             }
         }
     }
+    
+    func saveWidgetData(item: SinceEvent) {
+        
+        let widgetEvent = WidgetSinceEvent(title: item.title!, details: item.details!, date: item.date!, image: item.image ?? "sincelogo", showYears: item.displayyears, showDays: item.displaydays, showHours: item.displayhours, showMinutes: item.displayminutes)
+                
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(widgetEvent)
+            let url = AppGroup.since.containerURL.appendingPathComponent("widgetdata.json")
+            try jsonData.write(to: url)
+            print(jsonData)
+        } catch {
+            print("Save widget error: \(error)")
+        }
+        
+    }
+    
 }
 
 struct WidgetSettingsView_Previews: PreviewProvider {

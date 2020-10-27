@@ -39,8 +39,7 @@ class ImageHandler {
         }
     }
     
-    func retrieveImage(forKey key: String,
-                                inStorageType storageType: StorageType) -> UIImage? {
+    func retrieveImage(forKey key: String, inStorageType storageType: StorageType) -> UIImage? {
         switch storageType {
         case .fileSystem:
             if let filePath = self.filePath(forKey: key),
@@ -59,9 +58,10 @@ class ImageHandler {
     }
     
     func filePath(forKey key: String) -> URL? {
-        let fileManager = FileManager.default
-        guard let documentURL = fileManager.urls(for: .documentDirectory,
-                                                in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        //let fileManager = FileManager.default
+        //guard let documentURL = fileManager.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        
+        let documentURL = AppGroup.since.containerURL
         
         return documentURL.appendingPathComponent(key + ".png")
     }

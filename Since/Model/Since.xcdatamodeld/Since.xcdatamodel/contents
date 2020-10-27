@@ -9,10 +9,9 @@
         <attribute name="displayyears" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="SinceEvent" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="SinceEvent" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>
 </model>

@@ -17,21 +17,57 @@ struct SinceWidgetView: View {
     
     var body: some View {
         
+        
+        
         switch family {
                 case .systemSmall:
                     ZStack() {
-                        Image(image)
-                            .resizable()
-                            .scaledToFit()
+                        if image != "" {
+                            
+                            if let img = ImageHandler.sharedInstance.retrieveImage(forKey: image, inStorageType: .fileSystem) {
+                                Image(uiImage: img)
+                                    .resizable()
+                                    .scaledToFill()
+                                    
+                            } else {
+                                Image("sincelogo")
+                                    .resizable()
+                                    .scaledToFill()
+                                    
+                            }
+                            
+                        } else {
+                            Image("sincelogo")
+                                .resizable()
+                                .scaledToFill()
+                                
+                        }
                         Text(text)
                             .font(.largeTitle)
                             .fontWeight(.heavy)
                     }
                 case .systemMedium:
                     HStack {
-                        Image(image)
-                            .resizable()
-                            .scaledToFit()
+                        if image != "" {
+                            
+                            if let img = ImageHandler.sharedInstance.retrieveImage(forKey: image, inStorageType: .fileSystem) {
+                                Image(uiImage: img)
+                                    .resizable()
+                                    .scaledToFill()
+                                    
+                            } else {
+                                Image("sincelogo")
+                                    .resizable()
+                                    .scaledToFill()
+                                    
+                            }
+                            
+                        } else {
+                            Image("sincelogo")
+                                .resizable()
+                                .scaledToFill()
+                                
+                        }
                         Spacer()
                         Text(text)
                             .font(.largeTitle)
@@ -39,9 +75,26 @@ struct SinceWidgetView: View {
                     }
                 case .systemLarge:
                     ZStack() {
-                        Image(image)
-                            .resizable()
-                            .scaledToFit()
+                        if image != "" {
+                            
+                            if let img = ImageHandler.sharedInstance.retrieveImage(forKey: image, inStorageType: .fileSystem) {
+                                Image(uiImage: img)
+                                    .resizable()
+                                    .scaledToFill()
+                                    
+                            } else {
+                                Image("sincelogo")
+                                    .resizable()
+                                    .scaledToFill()
+                                    
+                            }
+                            
+                        } else {
+                            Image("sincelogo")
+                                .resizable()
+                                .scaledToFill()
+                                
+                        }
                         Text(text)
                             .font(.largeTitle)
                             .fontWeight(.heavy)
