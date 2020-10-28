@@ -31,7 +31,7 @@ struct AddEventView: View {
     @State private var errorTitle: String = ""
     @State private var errorMessage: String = ""
     
-    private var imageHandler = ImageHandler()
+    //private var imageHandler = ImageHandler()
     
     func loadImage() {
         guard let inputImage = inputImage else { return }
@@ -47,10 +47,11 @@ struct AddEventView: View {
             event.displayhours = self.displayHours
             event.displayminutes = self.displayMinutes
             event.displayyears = self.displayYear
+            event.id = UUID.init()
             
             if inputImage != nil {
-                event.image = imageHandler.randomString(length: 20)
-                imageHandler.store(image: inputImage!, forKey: event.image!, withStorageType: .fileSystem)
+                event.image = ImageHandler.sharedInstance.randomString(length: 20)
+                ImageHandler.sharedInstance.store(image: inputImage!, forKey: event.image!, withStorageType: .fileSystem)
             }
             
             do {
@@ -87,6 +88,7 @@ struct AddEventView: View {
                         Section(header: Text("When did it happen?")) {
                             DatePicker("Date", selection: $date)
                                     .padding()
+                                
                         }
                         
                         Section(header: Text("Do you have a picture?")) {
@@ -106,18 +108,19 @@ struct AddEventView: View {
                                     .scaledToFit()
                                     .cornerRadius(12.0)
                             }
-                            
-                            Button("Save") {
-                                saveEvent()
-                            }
-                            .font(.system(size: 24, weight: .bold, design: .default))
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color(UIColor.systemGreen))
-                            .foregroundColor(Color.white)
-                            .cornerRadius(12.0)
                         }
-            
+                            Section(header: Text("Save")) {
+                                Button("Save") {
+                                    saveEvent()
+                                }
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                                .padding()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(Color(UIColor.systemGreen))
+                                .foregroundColor(Color.white)
+                                .cornerRadius(12.0)
+                            }
+                    
                     } // form
                     
                 } // vstack

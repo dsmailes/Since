@@ -23,7 +23,7 @@ class ImageHandler {
     }
     
     func store(image: UIImage, forKey key: String, withStorageType storageType: StorageType) {
-        if let pngRepresentation = image.pngData() {
+        if let pngRepresentation = image.jpegData(compressionQuality: 0.5) {
             switch storageType {
             case .fileSystem:
                 if let filePath = filePath(forKey: key) {
@@ -63,7 +63,7 @@ class ImageHandler {
         
         let documentURL = AppGroup.since.containerURL
         
-        return documentURL.appendingPathComponent(key + ".png")
+        return documentURL.appendingPathComponent(key + ".jpg")
     }
     
     func getEventImage(imageName: String) -> UIImage {
