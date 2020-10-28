@@ -10,7 +10,6 @@ import SwiftUI
 struct WidgetSinceEvent: Codable {
     
     var title: String
-    var details: String
     var date: Date
     var image: String?
     var showYears: Bool

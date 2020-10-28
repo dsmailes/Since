@@ -11,26 +11,29 @@ struct MainView: View {
     
     let persistenceController = PersistenceController.shared
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
     var body: some View {
-        TabView {
-            ContentView()
+        TabView() {
+            
+            ContentView(addEventViewPresented: false)
                 .tabItem {
                     Text("List")
                     Image(systemName: "list.bullet")
                 }
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .tag(0)
+            
             WidgetSettingsView()
                 .tabItem {
                     Text("Widget")
                     Image(systemName: "macwindow")
                 }
-            SettingsView()
-                .tabItem {
-                    Text("Settings")
-                    Image(systemName: "hammer")
-                }
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .tag(2)
+    
         } // tabview
-        
+    
     }
 }
 

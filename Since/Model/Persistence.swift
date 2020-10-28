@@ -22,7 +22,6 @@ struct PersistenceController {
             let newItem = SinceEvent(context: viewContext)
             newItem.title = "Wedding"
             newItem.image = "married"
-            newItem.details = "Got married"
             newItem.date = weddingDate
         }
         do {

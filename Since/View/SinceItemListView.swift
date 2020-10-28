@@ -22,14 +22,14 @@ struct SinceItemListView: View {
                     Image(uiImage: img)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 120, height: 120)
+                        .frame(width: 90, height: 90)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
                         .padding()
                 } else {
                     Image("sincelogo")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 120, height: 120)
+                        .frame(width: 90, height: 90)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
                         .padding()
                 }
@@ -38,7 +38,7 @@ struct SinceItemListView: View {
                 Image("sincelogo")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 120, height: 120)
+                    .frame(width: 90, height: 90)
                     .clipShape(RoundedRectangle(cornerRadius: 12.0))
                     .padding()
             }
@@ -61,36 +61,8 @@ struct SinceItemListView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        if event.displayyears {
-                            Text(String(Date().years(from: event.date!)) + " years")
-                                .font(.footnote)
-                                .fontWeight(.medium)
-                                .lineLimit(1)
-                                .multilineTextAlignment(.leading)
-                        }
+                        Text(event.date!, style: .relative)
                         
-                        if event.displaydays {
-                            Text(String(Date().days(from: event.date!)) + " days")
-                                .font(.footnote)
-                                .fontWeight(.medium)
-                                .lineLimit(1)
-                                .multilineTextAlignment(.leading)
-                        }
-                        if event.displayhours {
-                            Text(String(Date().hours(from: event.date!)) + " hours")
-                                .font(.footnote)
-                                .fontWeight(.medium)
-                                .lineLimit(1)
-                                .multilineTextAlignment(.trailing)
-                        }
-                        
-                        if event.displayminutes {
-                            Text(String(Date().minutes(from: event.date!)) + " minutes")
-                                .font(.footnote)
-                                .fontWeight(.medium)
-                                .lineLimit(1)
-                                .multilineTextAlignment(.trailing)
-                        }
                     } // vstack
                     Spacer()
                 } // hstack
@@ -113,7 +85,6 @@ struct SinceItemListView_Previews: PreviewProvider {
         dEvent.title = "Wedding"
         dEvent.date = Date()
         dEvent.image = "married"
-        dEvent.details = "Got married."
         dEvent.displaydays = true
         dEvent.displayyears = true
         dEvent.displayhours = true

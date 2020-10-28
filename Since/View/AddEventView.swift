@@ -15,7 +15,6 @@ struct AddEventView: View {
     @State private var showingImagePicker = false
     
     @State private var date = Date()
-    @State private var details: String = ""
     @State private var id = UUID.init()
     @State private var image: String = ""
     @State private var timestamp = Date()
@@ -23,7 +22,7 @@ struct AddEventView: View {
     @State private var displayYear: Bool = true
     @State private var displayDays: Bool = true
     @State private var displayHours: Bool = true
-    @State private var displayMinutes: Bool = false
+    @State private var displayMinutes: Bool = true
     
     @State private var inputImage: UIImage?
     @State private var eventImage: Image?
@@ -40,9 +39,8 @@ struct AddEventView: View {
     }
     
     func saveEvent() {
-        if self.details != "" && self.title != "" {
+        if self.title != "" {
             let event = SinceEvent(context: managedObjectContext)
-            event.details = self.details
             event.title = self.title
             event.date = self.date
             event.displaydays = self.displayDays
@@ -65,8 +63,8 @@ struct AddEventView: View {
             
         } else {
             self.errorShowing = true
-            self.errorTitle = "Missing event name"
-            self.errorMessage = "Please enter a name for the event"
+            self.errorTitle = "Missing event title"
+            self.errorMessage = "Please enter a title for the event"
             return
         }
         
@@ -77,46 +75,21 @@ struct AddEventView: View {
             ZStack {
                 VStack {
                     Form {
-                        Section(header: Text("Title and details")) {
-                            TextField("Event", text: $title)
+                        Section(header: Text("What happened?")) {
+                            TextField("Title", text: $title)
                                 .padding()
-                                .background(Color(UIColor.lightGray))
+                                .background(Color(UIColor.systemBackground))
                                 .cornerRadius(12.0)
                                 .font(.system(size: 24, weight: .bold, design: .default))
-                            TextField("Details", text: $details)
-                                .padding()
-                                .background(Color(UIColor.lightGray))
-                                .cornerRadius(12.0)
-                                .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                                .font(.system(size: 20, weight: .medium, design: .default))
+                            
                         }
                         
-                        Section(header: Text("Date")) {
+                        Section(header: Text("When did it happen?")) {
                             DatePicker("Date", selection: $date)
                                     .padding()
                         }
                         
-                        Section(header: Text("Display settings")) {
-                            VStack {
-                                Toggle("Display years:", isOn: $displayYear)
-                                
-                                Divider()
-                                
-                                Toggle("Display days:", isOn: $displayDays)
-                                    
-                                Divider()
-                                
-                                Toggle("Display hours:", isOn: $displayHours)
-                                    
-                                Divider()
-                                
-                                Toggle("Display minutes:", isOn: $displayMinutes)
-                                    
-                                
-                            }
-                        }
-                        
-                        Section(header: Text("Finishing touches")) {
+                        Section(header: Text("Do you have a picture?")) {
                             Button("Add photo") {
                                 self.showingImagePicker = true
                             }
@@ -140,7 +113,7 @@ struct AddEventView: View {
                             .font(.system(size: 24, weight: .bold, design: .default))
                             .padding()
                             .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color(UIColor.systemTeal))
+                            .background(Color(UIColor.systemGreen))
                             .foregroundColor(Color.white)
                             .cornerRadius(12.0)
                         }
@@ -157,6 +130,7 @@ struct AddEventView: View {
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         } // nav
+        
         
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(image: self.$inputImage)

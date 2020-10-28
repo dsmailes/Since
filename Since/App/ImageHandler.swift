@@ -66,4 +66,14 @@ class ImageHandler {
         return documentURL.appendingPathComponent(key + ".png")
     }
     
+    func getEventImage(imageName: String) -> UIImage {
+        
+        if let img = retrieveImage(forKey: imageName, inStorageType: .fileSystem) {
+            return img
+        } else {
+            return UIImage(named: "sincelogo")!
+        }
+        
+    }
+    
 }

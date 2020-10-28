@@ -10,94 +10,101 @@ import WidgetKit
 
 struct SinceWidgetView: View {
     
-    let image: String
-    let text: String
+    let event: WidgetSinceEvent
     
     @Environment(\.widgetFamily) var family
     
+    @ViewBuilder
     var body: some View {
-        
-        
         
         switch family {
                 case .systemSmall:
-                    ZStack() {
-                        if image != "" {
+                    
+                    ZStack {
+                        Image(uiImage: ImageHandler.sharedInstance.getEventImage(imageName: event.image!))
+                            .resizable()
+                            .centerCropped()
+                        
+                        VStack(alignment: .leading) {
+                        
+                            Text(event.title)
+                            .fontWeight(.bold)
+                            .font(.body)
+                            .frame(maxWidth: .infinity)
+                            .multilineTextAlignment(.center)
+                            .background(Color(UIColor.systemBackground))
+                            .lineLimit(1)
                             
-                            if let img = ImageHandler.sharedInstance.retrieveImage(forKey: image, inStorageType: .fileSystem) {
-                                Image(uiImage: img)
-                                    .resizable()
-                                    .scaledToFill()
-                                    
-                            } else {
-                                Image("sincelogo")
-                                    .resizable()
-                                    .scaledToFill()
-                                    
-                            }
-                            
-                        } else {
-                            Image("sincelogo")
-                                .resizable()
-                                .scaledToFill()
-                                
-                        }
-                        Text(text)
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                    }
-                case .systemMedium:
-                    HStack {
-                        if image != "" {
-                            
-                            if let img = ImageHandler.sharedInstance.retrieveImage(forKey: image, inStorageType: .fileSystem) {
-                                Image(uiImage: img)
-                                    .resizable()
-                                    .scaledToFill()
-                                    
-                            } else {
-                                Image("sincelogo")
-                                    .resizable()
-                                    .scaledToFill()
-                                    
-                            }
-                            
-                        } else {
-                            Image("sincelogo")
-                                .resizable()
-                                .scaledToFill()
-                                
-                        }
+                        Text(event.date, style: .relative)
+                            .fontWeight(.semibold)
+                            .font(.footnote)
+                            .background(Color(UIColor.systemBackground))
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
+                        
                         Spacer()
-                        Text(text)
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                    }
+                            
+                        } // vstack
+                        .frame(maxWidth: .infinity)
+                    } // zstack
+                    
+                case .systemMedium:
+                    ZStack(alignment: .center) {
+                        Image(uiImage: ImageHandler.sharedInstance.getEventImage(imageName: event.image!))
+                            .resizable()
+                            .centerCropped()
+                            
+                        VStack(alignment: .center) {
+                            
+                            Spacer()
+                        
+                            Text(event.title)
+                            .fontWeight(.bold)
+                            .font(.body)
+                            .frame(maxWidth: .infinity)
+                            .multilineTextAlignment(.center)
+                            .background(Color(UIColor.systemBackground))
+                            .lineLimit(1)
+                            
+                        Text(event.date, style: .relative)
+                            .fontWeight(.semibold)
+                            .font(.footnote)
+                            .background(Color(UIColor.systemBackground))
+                            .lineLimit(1)
+                            .multilineTextAlignment(.center)
+                        
+                        Spacer()
+                            
+                        } // vstack
+                            .frame(maxWidth: .infinity)
+                    } // zstack
                 case .systemLarge:
                     ZStack() {
-                        if image != "" {
+                        Image(uiImage: ImageHandler.sharedInstance.getEventImage(imageName: event.image!))
+                            .resizable()
+                            .centerCropped()
+                        
+                        VStack(alignment: .leading) {
+                        
+                            Text(event.title)
+                            .fontWeight(.bold)
+                            .font(.body)
+                            .frame(maxWidth: .infinity)
+                            .multilineTextAlignment(.center)
+                            .background(Color(UIColor.systemBackground))
+                            .lineLimit(1)
                             
-                            if let img = ImageHandler.sharedInstance.retrieveImage(forKey: image, inStorageType: .fileSystem) {
-                                Image(uiImage: img)
-                                    .resizable()
-                                    .scaledToFill()
-                                    
-                            } else {
-                                Image("sincelogo")
-                                    .resizable()
-                                    .scaledToFill()
-                                    
-                            }
+                        Text(event.date, style: .relative)
+                            .fontWeight(.semibold)
+                            .font(.footnote)
+                            .background(Color(UIColor.systemBackground))
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
+                        
+                        Spacer()
                             
-                        } else {
-                            Image("sincelogo")
-                                .resizable()
-                                .scaledToFill()
-                                
-                        }
-                        Text(text)
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
+                        } // vstack
+                        .frame(maxWidth: .infinity)
                     }
                 default:
                     Text("Some other WidgetFamily in the future.")
@@ -110,8 +117,19 @@ struct SinceWidgetView: View {
 
 struct SinceWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        SinceWidgetView(image: "sincelogo", text: "10")
+        SinceWidgetView(event: WidgetSinceEvent(title: "Since Event", date: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true))
             .previewLayout(.sizeThatFits)
             .padding()
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        SinceWidgetView(event: WidgetSinceEvent(title: "Since Event", date: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true))
+            .previewLayout(.sizeThatFits)
+            .padding()
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            
+        SinceWidgetView(event: WidgetSinceEvent(title: "Since Event", date: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true))
+            .previewLayout(.sizeThatFits)
+            .padding()
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+        
     }
 }

@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct SinceApp: App {
+    
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         }
     }
 }

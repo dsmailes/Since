@@ -10,39 +10,50 @@ import CoreData
 
 struct ContentView: View {
     
-    @State private var showingAddEventView: Bool = false
-    
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \SinceEvent.date, ascending: true)],
-        animation: .default)
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SinceEvent.date, ascending: true)], animation: .default)
     
     private var events: FetchedResults<SinceEvent>
     
+    @State var addEventViewPresented: Bool
+    
     var body: some View {
+        
         NavigationView {
-            ZStack{
-                List {
-                    ForEach(self.events, id: \.self) { item in
-                        SinceItemListView(event: item)
-                    }
-                    .onDelete(perform: deleteItems)
-                } // List
-                .toolbar {
-                    Button(action: {
-                        self.showingAddEventView.toggle()
-                    }) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+            List {
+                ForEach(self.events, id: \.self) { item in
+                    SinceItemListView(event: item)
                 }
-                .navigationBarTitle("Since...", displayMode: .large)
-                .listStyle(InsetListStyle())
-            } // zstack
-            .sheet(isPresented: $showingAddEventView) {
+                .onDelete(perform: deleteItems)
+            } // List
+            .listStyle(InsetListStyle())
+            .navigationBarTitle("Since...", displayMode: .large)
+            .background(Color.clear)
+            .sheet(isPresented: $addEventViewPresented) {
                 AddEventView().environment(\.managedObjectContext, self.viewContext)
             }
-        }
+        } // nav
+        .overlay(
+            ZStack {
+                Button(action: {
+                    self.addEventViewPresented.toggle()
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .background(Circle()
+                                        .fill(Color(UIColor.systemBackground)))
+                        .frame(width: 72, height: 72, alignment: .center)
+                }
+            } // zstack
+            .padding(.bottom, 30)
+            .padding(.trailing, 30)
+            , alignment: .bottomTrailing
+            
+            
+        )
+
     }
 
     private func deleteItems(offsets: IndexSet) {
@@ -61,13 +72,6 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     
     static let moc = PersistenceController().container.viewContext
@@ -79,12 +83,11 @@ struct ContentView_Previews: PreviewProvider {
         dEvent.title = "Wedding"
         dEvent.date = Date()
         dEvent.image = "married"
-        dEvent.details = "Got married."
         dEvent.displaydays = true
         dEvent.displayyears = true
         dEvent.displayhours = true
         dEvent.displayminutes = true
         
-        return ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        return ContentView(addEventViewPresented: false).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

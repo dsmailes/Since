@@ -11,11 +11,11 @@ import Foundation
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SinceEventEntry {
-        SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date())
+        SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SinceEventEntry) -> ()) {
-        let entry = SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date())
+        let entry = SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date())
         completion(entry)
     }
 
@@ -26,7 +26,7 @@ struct Provider: TimelineProvider {
         
         let event = decodeEvent()
         
-        let entry = SinceEventEntry(title: event.title, details: event.details, eventDate: event.date, image: event.image ?? "sincelogo", showYears: event.showYears, showDays: event.showDays, showHours: event.showHours, showMinutes: event.showMinutes, date: Date())
+        let entry = SinceEventEntry(title: event.title, eventDate: event.date, image: event.image ?? "sincelogo", showYears: event.showYears, showDays: event.showDays, showHours: event.showHours, showMinutes: event.showMinutes, date: Date())
 
         entries.append(entry)
         
@@ -37,7 +37,6 @@ struct Provider: TimelineProvider {
 
 struct SinceEventEntry: TimelineEntry {
     var title: String
-    var details: String
     var eventDate: Date
     var image: String?
     var showYears: Bool
@@ -51,7 +50,7 @@ struct Since_WidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        SinceWidgetView(image: entry.image ?? "sincelogo", text: entry.title)
+        SinceWidgetView(event: WidgetSinceEvent(title: entry.title, date: entry.eventDate, image: entry.image ?? "sincelogo", showYears: entry.showYears, showDays: entry.showDays, showHours: entry.showHours, showMinutes: entry.showMinutes))
     }
 }
 
@@ -79,43 +78,42 @@ func decodeEvent() -> WidgetSinceEvent {
         data = try Data(contentsOf: url)
     } catch {
         debugPrint(error)
-        return WidgetSinceEvent(title: "Error 1", details: "Error", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
+        return WidgetSinceEvent(title: "Error 1", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
     }
-    
     do {
         let decodedData = try decoder.decode(WidgetSinceEvent.self, from: data)
         print(decodedData)
         return decodedData
     } catch {
         debugPrint(error)
-        return WidgetSinceEvent(title: "Error 2", details: "Error", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
+        return WidgetSinceEvent(title: "Error 2", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
     }
 
 }
 
 struct Since_Widget_Previews: PreviewProvider {
     static var previews: some View {
-        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
+        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("Small, light")
             .environment(\.colorScheme, .light)
-        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
+        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("Small, dark")
             .environment(\.colorScheme, .dark)
-        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
+        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("Medium, light")
             .environment(\.colorScheme, .light)
-        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
+        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("Medium, dark")
             .environment(\.colorScheme, .dark)
-        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
+        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDisplayName("Large, light")
             .environment(\.colorScheme, .light)
-        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", details: "Your event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
+        Since_WidgetEntryView(entry: SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDisplayName("Large, dark")
             .environment(\.colorScheme, .dark)
