@@ -23,15 +23,21 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(self.events, id: \.self) { item in
-                    SinceItemListView(event: item)
+                    NavigationLink(destination: EditItemView(event: item).environment(\.managedObjectContext, self.viewContext)) {
+                        SinceItemListView(event: item)
+                    }
+                    .isDetailLink(false)
+                    
                 }
                 .onDelete(perform: deleteItems)
+                
             } // List
             .listStyle(InsetListStyle())
             .navigationBarTitle("Since...", displayMode: .large)
             .background(Color.clear)
             .sheet(isPresented: $addEventViewPresented) {
                 AddEventView().environment(\.managedObjectContext, self.viewContext)
+            
             }
         } // nav
         .overlay(
@@ -44,11 +50,11 @@ struct ContentView: View {
                         .scaledToFit()
                         .background(Circle()
                                         .fill(Color(UIColor.systemBackground)))
-                        .frame(width: 72, height: 72, alignment: .center)
+                        .frame(width: 64, height: 64, alignment: .center)
                 }
             } // zstack
-            .padding(.bottom, 30)
-            .padding(.trailing, 30)
+            .padding(.bottom, 15)
+            .padding(.trailing, 15)
             , alignment: .bottomTrailing
             
             

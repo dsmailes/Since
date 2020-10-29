@@ -11,8 +11,6 @@ import WidgetKit
 
 struct WidgetSettingsView: View {
     
-    @State private var showingAddEventView: Bool = false
-    
     @State private var acknowledgementShowing: Bool = false
     @State private var acknowledgementTitle: String = ""
     @State private var acknowledgementMessage: String = ""
@@ -41,9 +39,6 @@ struct WidgetSettingsView: View {
                 .navigationBarTitle("Widget selection...", displayMode: .large)
                 .listStyle(InsetListStyle())
             } // zstack
-            .sheet(isPresented: $showingAddEventView) {
-                AddEventView().environment(\.managedObjectContext, self.viewContext)
-            }
         }
         .alert(isPresented: $acknowledgementShowing) {
                     Alert(title: Text(acknowledgementTitle), message:
@@ -65,13 +60,11 @@ struct WidgetSettingsView: View {
             print(jsonData)
             self.acknowledgementShowing = true
             self.acknowledgementTitle = "Widget changed"
-            self.acknowledgementMessage = "You have set \(widgetEvent.title) as the current widget. Be aware this may take time to change over."
+            self.acknowledgementMessage = "You have set \(widgetEvent.title) as the current widget."
             return
         } catch {
             print("Save widget error: \(error)")
         }
-        
-        
         
     }
     

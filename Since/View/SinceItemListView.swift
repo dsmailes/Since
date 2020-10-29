@@ -10,7 +10,7 @@ import CoreData
 
 struct SinceItemListView: View {
     
-    let event: SinceEvent
+    @ObservedObject var event: SinceEvent
     
     var timeString: String = ""
     
@@ -24,14 +24,14 @@ struct SinceItemListView: View {
                         .scaledToFill()
                         .frame(width: 90, height: 90)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
-                        .padding()
+                        
                 } else {
                     Image("sincelogo")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 90, height: 90)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
-                        .padding()
+                        
                 }
                 
             } else {
@@ -40,7 +40,7 @@ struct SinceItemListView: View {
                     .scaledToFill()
                     .frame(width: 90, height: 90)
                     .clipShape(RoundedRectangle(cornerRadius: 12.0))
-                    .padding()
+                    
             }
             
             //Spacer()
@@ -49,7 +49,7 @@ struct SinceItemListView: View {
                 HStack {
                     Spacer()
                     
-                    Text(verbatim: event.title!)
+                    Text(verbatim: event.title ?? "")
                         .font(.largeTitle)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.center)
@@ -61,13 +61,12 @@ struct SinceItemListView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        Text(event.date!, style: .relative)
+                        Text(event.date ?? Date(), style: .relative)
                         
                     } // vstack
                     Spacer()
                 } // hstack
                 
-               
             } // VStack
             
         } // HStack

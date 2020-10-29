@@ -14,7 +14,7 @@ struct SinceApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            SplashView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         }

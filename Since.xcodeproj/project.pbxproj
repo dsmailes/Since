@@ -11,6 +11,8 @@
 		349C75D7254892AE002605B0 /* CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75D32548929D002605B0 /* CenterCropped.swift */; };
 		349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75F2254988DA002605B0 /* KeyboardRemover.swift */; };
 		349C75FB25499341002605B0 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75FA25499341002605B0 /* Size.swift */; };
+		349C760B254AC951002605B0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C760A254AC950002605B0 /* SplashView.swift */; };
+		349C7615254AF298002605B0 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7614254AF297002605B0 /* EditItemView.swift */; };
 		34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36002541EA420032D3A7 /* SinceApp.swift */; };
 		34BE36032541EA420032D3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36022541EA420032D3A7 /* ContentView.swift */; };
 		34BE36052541EA430032D3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE36042541EA430032D3A7 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		349C75D32548929D002605B0 /* CenterCropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCropped.swift; sourceTree = "<group>"; };
 		349C75F2254988DA002605B0 /* KeyboardRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRemover.swift; sourceTree = "<group>"; };
 		349C75FA25499341002605B0 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		349C760A254AC950002605B0 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		349C7614254AF297002605B0 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		34BE35FD2541EA420032D3A7 /* Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Since.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE36002541EA420032D3A7 /* SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinceApp.swift; sourceTree = "<group>"; };
 		34BE36022541EA420032D3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,11 +180,13 @@
 			isa = PBXGroup;
 			children = (
 				34BE36022541EA420032D3A7 /* ContentView.swift */,
+				349C760A254AC950002605B0 /* SplashView.swift */,
 				34BE361C2541EBFA0032D3A7 /* SinceItemListView.swift */,
 				34BE36252541F5740032D3A7 /* AddEventView.swift */,
 				34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */,
 				34BE362E2541F8B30032D3A7 /* SettingsView.swift */,
 				34BE36322546E21A0032D3A7 /* ImagePicker.swift */,
+				349C7614254AF297002605B0 /* EditItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 				34BE36292541F69A0032D3A7 /* MainView.swift in Sources */,
 				34BE36262541F5740032D3A7 /* AddEventView.swift in Sources */,
 				34BE3669254728160032D3A7 /* AppGroup.swift in Sources */,
+				349C7615254AF298002605B0 /* EditItemView.swift in Sources */,
 				349C75D42548929D002605B0 /* CenterCropped.swift in Sources */,
 				34BE361D2541EBFA0032D3A7 /* SinceItemListView.swift in Sources */,
 				34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */,
@@ -361,6 +368,7 @@
 				34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */,
 				34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */,
 				349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */,
+				349C760B254AC951002605B0 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.61;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -547,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.61;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -569,7 +577,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.61;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mylearningapps.Since.Since-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -592,7 +600,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.61;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mylearningapps.Since.Since-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
