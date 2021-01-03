@@ -51,7 +51,6 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
     }
     
     func returnPriceString(product: SKProduct) -> String {
-        
         let numberFormatter = NumberFormatter()
         numberFormatter.formatterBehavior = .behavior10_4
         numberFormatter.numberStyle = .currency
