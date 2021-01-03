@@ -85,29 +85,33 @@ struct AddEventView: View {
                             
                         }
                         
-                        Section(header: Text("When did it happen?")) {
+                        Section(header: Text("When?")) {
                             DatePicker("Date", selection: $date)
                                     .padding()
                                 
                         }
                         
                         Section(header: Text("Do you have a picture?")) {
-                            Button("Add photo") {
-                                self.showingImagePicker = true
+                            VStack(alignment: .center) {
+                                Button("Add photo") {
+                                    self.showingImagePicker = true
+                                }
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                                .padding()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(Color(UIColor.systemBlue))
+                                .foregroundColor(Color.white)
+                                .cornerRadius(12.0)
+                                
+                                if inputImage != nil {
+                                    Image(uiImage: inputImage!)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .cornerRadius(12.0)
+                                        .frame(maxHeight: 150)
+                                }
                             }
-                            .font(.system(size: 24, weight: .bold, design: .default))
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color(UIColor.systemBlue))
-                            .foregroundColor(Color.white)
-                            .cornerRadius(12.0)
                             
-                            if inputImage != nil {
-                                Image(uiImage: inputImage!)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .cornerRadius(12.0)
-                            }
                         }
                             Section(header: Text("Save")) {
                                 Button("Save") {
@@ -132,7 +136,11 @@ struct AddEventView: View {
             .edgesIgnoringSafeArea([.top, .bottom])
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .navigationBarItems(trailing: Button(action:{ self.saveEvent()}) {
+                Image(systemName: "checkmark.circle")
+            })
         } // nav
+        
         
         
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {

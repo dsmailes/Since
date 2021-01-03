@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3493762225A1C7B90035D845 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493762125A1C7B90035D845 /* NotificationManager.swift */; };
+		3493762E25A1CC5D0035D845 /* EventDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493762625A1CBA00035D845 /* EventDecoder.swift */; };
 		349C75D42548929D002605B0 /* CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75D32548929D002605B0 /* CenterCropped.swift */; };
 		349C75D7254892AE002605B0 /* CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75D32548929D002605B0 /* CenterCropped.swift */; };
 		349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75F2254988DA002605B0 /* KeyboardRemover.swift */; };
 		349C75FB25499341002605B0 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75FA25499341002605B0 /* Size.swift */; };
 		349C760B254AC951002605B0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C760A254AC950002605B0 /* SplashView.swift */; };
 		349C7615254AF298002605B0 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7614254AF297002605B0 /* EditItemView.swift */; };
+		349C7622254B24D2002605B0 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7621254B24D1002605B0 /* CustomTabView.swift */; };
+		349C7626254B3112002605B0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7625254B3112002605B0 /* OnboardingView.swift */; };
+		349C762A254B3177002605B0 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7629254B3177002605B0 /* OnboardingCardView.swift */; };
+		349C762E254B3193002605B0 /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C762D254B3193002605B0 /* OnboardingItem.swift */; };
+		349C7633254B3209002605B0 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7632254B3209002605B0 /* OnboardingData.swift */; };
+		349C7639254B372A002605B0 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7638254B372A002605B0 /* StartButtonView.swift */; };
 		34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36002541EA420032D3A7 /* SinceApp.swift */; };
 		34BE36032541EA420032D3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36022541EA420032D3A7 /* ContentView.swift */; };
 		34BE36052541EA430032D3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE36042541EA430032D3A7 /* Assets.xcassets */; };
@@ -23,7 +31,6 @@
 		34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36212541EC230032D3A7 /* TimeFromDate.swift */; };
 		34BE36262541F5740032D3A7 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36252541F5740032D3A7 /* AddEventView.swift */; };
 		34BE36292541F69A0032D3A7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36282541F69A0032D3A7 /* MainView.swift */; };
-		34BE362C2541F89B0032D3A7 /* WidgetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */; };
 		34BE362F2541F8B30032D3A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE362E2541F8B30032D3A7 /* SettingsView.swift */; };
 		34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36322546E21A0032D3A7 /* ImagePicker.swift */; };
 		34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36392546E7C60032D3A7 /* ImageHandler.swift */; };
@@ -40,6 +47,7 @@
 		34BE36D025480EA30032D3A7 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36392546E7C60032D3A7 /* ImageHandler.swift */; };
 		34BE36D3254810350032D3A7 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE3668254728160032D3A7 /* AppGroup.swift */; };
 		34BE36E3254843FD0032D3A7 /* TimeFromDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36212541EC230032D3A7 /* TimeFromDate.swift */; };
+		34C63C42259CAB1F003B12DB /* WikiSinceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C63C41259CAB1F003B12DB /* WikiSinceEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,11 +75,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3493762125A1C7B90035D845 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		3493762625A1CBA00035D845 /* EventDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDecoder.swift; sourceTree = "<group>"; };
 		349C75D32548929D002605B0 /* CenterCropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCropped.swift; sourceTree = "<group>"; };
 		349C75F2254988DA002605B0 /* KeyboardRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRemover.swift; sourceTree = "<group>"; };
 		349C75FA25499341002605B0 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		349C760A254AC950002605B0 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		349C7614254AF297002605B0 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
+		349C7621254B24D1002605B0 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		349C7625254B3112002605B0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		349C7629254B3177002605B0 /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
+		349C762D254B3193002605B0 /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
+		349C7632254B3209002605B0 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		349C7638254B372A002605B0 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
 		34BE35FD2541EA420032D3A7 /* Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Since.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE36002541EA420032D3A7 /* SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinceApp.swift; sourceTree = "<group>"; };
 		34BE36022541EA420032D3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,7 +100,6 @@
 		34BE36212541EC230032D3A7 /* TimeFromDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFromDate.swift; sourceTree = "<group>"; };
 		34BE36252541F5740032D3A7 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		34BE36282541F69A0032D3A7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSettingsView.swift; sourceTree = "<group>"; };
 		34BE362E2541F8B30032D3A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34BE36322546E21A0032D3A7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		34BE36392546E7C60032D3A7 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
@@ -100,6 +115,7 @@
 		34BE3668254728160032D3A7 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		34BE368625472DAD0032D3A7 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		34BE36CB25480B550032D3A7 /* WidgetSinceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSinceEvent.swift; sourceTree = "<group>"; };
+		34C63C41259CAB1F003B12DB /* WikiSinceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiSinceEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3493762525A1CB860035D845 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3493762625A1CBA00035D845 /* EventDecoder.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3493763125A1D0CB0035D845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		349C7631254B31F8002605B0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				349C7632254B3209002605B0 /* OnboardingData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		34BE35F42541EA420032D3A7 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +184,7 @@
 		34BE35FF2541EA420032D3A7 /* Since */ = {
 			isa = PBXGroup;
 			children = (
+				349C7631254B31F8002605B0 /* Data */,
 				34BE365D254725F50032D3A7 /* Since.entitlements */,
 				34BE36202541EC160032D3A7 /* Extension */,
 				34BE36172541EB920032D3A7 /* App */,
@@ -172,6 +212,7 @@
 				34BE36282541F69A0032D3A7 /* MainView.swift */,
 				34BE36392546E7C60032D3A7 /* ImageHandler.swift */,
 				349C75FA25499341002605B0 /* Size.swift */,
+				3493762125A1C7B90035D845 /* NotificationManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -183,10 +224,13 @@
 				349C760A254AC950002605B0 /* SplashView.swift */,
 				34BE361C2541EBFA0032D3A7 /* SinceItemListView.swift */,
 				34BE36252541F5740032D3A7 /* AddEventView.swift */,
-				34BE362B2541F89B0032D3A7 /* WidgetSettingsView.swift */,
 				34BE362E2541F8B30032D3A7 /* SettingsView.swift */,
 				34BE36322546E21A0032D3A7 /* ImagePicker.swift */,
 				349C7614254AF297002605B0 /* EditItemView.swift */,
+				349C7621254B24D1002605B0 /* CustomTabView.swift */,
+				349C7625254B3112002605B0 /* OnboardingView.swift */,
+				349C7629254B3177002605B0 /* OnboardingCardView.swift */,
+				349C7638254B372A002605B0 /* StartButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +242,8 @@
 				34BE36092541EA430032D3A7 /* Persistence.swift */,
 				34BE3668254728160032D3A7 /* AppGroup.swift */,
 				34BE36CB25480B550032D3A7 /* WidgetSinceEvent.swift */,
+				34C63C41259CAB1F003B12DB /* WikiSinceEvent.swift */,
+				349C762D254B3193002605B0 /* OnboardingItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +271,8 @@
 		34BE3647254724910032D3A7 /* Since Widget */ = {
 			isa = PBXGroup;
 			children = (
+				3493763125A1D0CB0035D845 /* Model */,
+				3493762525A1CB860035D845 /* Data */,
 				34BE3663254726770032D3A7 /* App */,
 				34BE3656254725020032D3A7 /* View */,
 				34BE3648254724910032D3A7 /* Since_Widget.swift */,
@@ -350,17 +398,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349C762E254B3193002605B0 /* OnboardingItem.swift in Sources */,
 				34BE360D2541EA430032D3A7 /* Since.xcdatamodeld in Sources */,
+				349C762A254B3177002605B0 /* OnboardingCardView.swift in Sources */,
 				34BE36CC25480B550032D3A7 /* WidgetSinceEvent.swift in Sources */,
 				34BE36292541F69A0032D3A7 /* MainView.swift in Sources */,
 				34BE36262541F5740032D3A7 /* AddEventView.swift in Sources */,
 				34BE3669254728160032D3A7 /* AppGroup.swift in Sources */,
 				349C7615254AF298002605B0 /* EditItemView.swift in Sources */,
+				349C7626254B3112002605B0 /* OnboardingView.swift in Sources */,
+				34C63C42259CAB1F003B12DB /* WikiSinceEvent.swift in Sources */,
 				349C75D42548929D002605B0 /* CenterCropped.swift in Sources */,
+				349C7622254B24D2002605B0 /* CustomTabView.swift in Sources */,
+				3493762225A1C7B90035D845 /* NotificationManager.swift in Sources */,
 				34BE361D2541EBFA0032D3A7 /* SinceItemListView.swift in Sources */,
+				349C7633254B3209002605B0 /* OnboardingData.swift in Sources */,
 				34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */,
 				34BE362F2541F8B30032D3A7 /* SettingsView.swift in Sources */,
-				34BE362C2541F89B0032D3A7 /* WidgetSettingsView.swift in Sources */,
 				349C75FB25499341002605B0 /* Size.swift in Sources */,
 				34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */,
 				34BE360A2541EA430032D3A7 /* Persistence.swift in Sources */,
@@ -368,6 +422,7 @@
 				34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */,
 				34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */,
 				349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */,
+				349C7639254B372A002605B0 /* StartButtonView.swift in Sources */,
 				349C760B254AC951002605B0 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +436,7 @@
 				34BE36E3254843FD0032D3A7 /* TimeFromDate.swift in Sources */,
 				34BE36CD25480B550032D3A7 /* WidgetSinceEvent.swift in Sources */,
 				34BE36D025480EA30032D3A7 /* ImageHandler.swift in Sources */,
+				3493762E25A1CC5D0035D845 /* EventDecoder.swift in Sources */,
 				349C75D7254892AE002605B0 /* CenterCropped.swift in Sources */,
 				34BE366C25472A110032D3A7 /* SinceWidgetView.swift in Sources */,
 			);
@@ -521,6 +577,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Since/Since.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Since/Preview Content\"";
 				DEVELOPMENT_TEAM = 6M7LP63RZC;
 				ENABLE_PREVIEWS = YES;
@@ -530,7 +587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -546,6 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Since/Since.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Since/Preview Content\"";
 				DEVELOPMENT_TEAM = 6M7LP63RZC;
 				ENABLE_PREVIEWS = YES;
@@ -555,7 +613,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -570,6 +628,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Since WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6M7LP63RZC;
 				INFOPLIST_FILE = "Since Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -577,7 +636,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mylearningapps.Since.Since-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -593,6 +652,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Since WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6M7LP63RZC;
 				INFOPLIST_FILE = "Since Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -600,7 +660,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mylearningapps.Since.Since-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

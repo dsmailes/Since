@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 struct ContentView: View {
     
@@ -18,16 +19,41 @@ struct ContentView: View {
     
     @State var addEventViewPresented: Bool
     
+    @State private var acknowledgementShowing: Bool = false
+    @State private var acknowledgementTitle: String = ""
+    @State private var acknowledgementMessage: String = ""
+    
     var body: some View {
         
         NavigationView {
             List {
                 ForEach(self.events, id: \.self) { item in
                     NavigationLink(destination: EditItemView(event: item).environment(\.managedObjectContext, self.viewContext)) {
+                        
                         SinceItemListView(event: item)
                     }
-                    .isDetailLink(false)
-                    
+                    .isDetailLink(true)
+                    .contextMenu {
+                        Group {
+                            Button("Set as widget 1", action: {
+                                self.saveWidgetData(widgetNumber : 0, item: item)
+                            })
+                            Button("Set as widget 2", action: {
+                                self.saveWidgetData(widgetNumber : 1, item: item)
+                            })
+                            Button("Set as widget 3", action: {
+                                self.saveWidgetData(widgetNumber : 2, item: item)
+                            })
+                            Button("Set as widget 4", action: {
+                                self.saveWidgetData(widgetNumber : 3, item: item)
+                            })
+                            Button("Set as widget 5", action: {
+                                self.saveWidgetData(widgetNumber : 4, item: item)
+                            })
+                        }
+                        
+                    }
+ 
                 }
                 .onDelete(perform: deleteItems)
                 
@@ -40,6 +66,10 @@ struct ContentView: View {
             
             }
         } // nav
+        .alert(isPresented: $acknowledgementShowing) {
+                    Alert(title: Text(acknowledgementTitle), message:
+        Text(acknowledgementMessage), dismissButton: .default(Text("OK")))
+            }
         .overlay(
             ZStack {
                 Button(action: {
@@ -60,6 +90,29 @@ struct ContentView: View {
             
         )
 
+    }
+    
+    private func saveWidgetData(widgetNumber: Int, item: SinceEvent) {
+        
+        let widgetEvent = WidgetSinceEvent(title: item.title!, date: item.date!, image: item.image ?? "sincelogo", showYears: item.displayyears, showDays: item.displaydays, showHours: item.displayhours, showMinutes: item.displayminutes)
+                
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(widgetEvent)
+            let widgetName = "widgetdata" + String(widgetNumber)
+            let url = AppGroup.since.containerURL.appendingPathComponent(widgetName + ".json")
+            
+            try jsonData.write(to: url)
+            WidgetCenter.shared.reloadAllTimelines()
+            print(jsonData)
+            self.acknowledgementShowing = true
+            self.acknowledgementTitle = "Widget changed"
+            self.acknowledgementMessage = "You have set \(widgetEvent.title) as widget " + String(widgetNumber)
+            return
+        } catch {
+            print("Save widget error: \(error)")
+        }
+        
     }
 
     private func deleteItems(offsets: IndexSet) {

@@ -9,7 +9,21 @@ import WidgetKit
 import SwiftUI
 import Foundation
 
+struct SinceEventEntry: TimelineEntry {
+    var title: String
+    var eventDate: Date
+    var image: String?
+    var showYears: Bool
+    var showDays: Bool
+    var showHours: Bool
+    var showMinutes: Bool
+    var date: Date
+}
+
 struct Provider: TimelineProvider {
+    
+    var widgetNumber: Int
+    
     func placeholder(in context: Context) -> SinceEventEntry {
         SinceEventEntry(title: "Since Event", eventDate: Date(), image: "sincelogo", showYears: true, showDays: true, showHours: true, showMinutes: true, date: Date())
     }
@@ -22,9 +36,7 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SinceEventEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        
-        let event = decodeEvent()
+        let event = EventDecoder.sharedInstance.decodeEvent(number: widgetNumber)
         
         let entry = SinceEventEntry(title: event.title, eventDate: event.date, image: event.image ?? "sincelogo", showYears: event.showYears, showDays: event.showDays, showHours: event.showHours, showMinutes: event.showMinutes, date: Date())
 
@@ -33,17 +45,6 @@ struct Provider: TimelineProvider {
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
-}
-
-struct SinceEventEntry: TimelineEntry {
-    var title: String
-    var eventDate: Date
-    var image: String?
-    var showYears: Bool
-    var showDays: Bool
-    var showHours: Bool
-    var showMinutes: Bool
-    var date: Date
 }
 
 struct Since_WidgetEntryView : View {
@@ -60,7 +61,7 @@ struct Since_Widget: Widget {
     let kind: String = "Since_Widget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 0)) { entry in
             Since_WidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Since")
@@ -70,26 +71,7 @@ struct Since_Widget: Widget {
     
 }
 
-func decodeEvent() -> WidgetSinceEvent {
-    let decoder = JSONDecoder()
-    let url = AppGroup.since.containerURL.appendingPathComponent("widgetdata.json")
-    var data: Data
-    do {
-        data = try Data(contentsOf: url)
-    } catch {
-        debugPrint(error)
-        return WidgetSinceEvent(title: "Error 1", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
-    }
-    do {
-        let decodedData = try decoder.decode(WidgetSinceEvent.self, from: data)
-        print(decodedData)
-        return decodedData
-    } catch {
-        debugPrint(error)
-        return WidgetSinceEvent(title: "Error 2", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
-    }
 
-}
 
 struct Since_Widget_Previews: PreviewProvider {
     static var previews: some View {

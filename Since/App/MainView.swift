@@ -14,26 +14,24 @@ struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
-        TabView() {
-            
-            ContentView(addEventViewPresented: false)
-                .tabItem {
-                    Text("List")
-                    Image(systemName: "list.bullet")
-                }
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .tag(0)
-            
-            WidgetSettingsView()
-                .tabItem {
-                    Text("Widget")
-                    Image(systemName: "macwindow")
-                }
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .tag(2)
-    
-        } // tabview
-    
+            TabView() {
+                
+                ContentView(addEventViewPresented: false)
+                    .tabItem {
+                        
+                        Text("List")
+                        Image(systemName: "list.bullet")
+                    }
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    
+                
+                
+                    
+                    
+            } // tabview
+            .transition(.slide)
+            .animation(.easeInOut)
+        
     }
 }
 

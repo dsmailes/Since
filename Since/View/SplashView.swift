@@ -12,12 +12,17 @@ struct SplashView: View {
     @State var animate: Bool = false
     @State var endSplash: Bool = false
     
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     var body: some View {
         VStack {
             
                 ZStack {
-                    
-                    MainView()
+                    if isOnboarding {
+                        OnboardingView()
+                    } else {
+                        ContentView(addEventViewPresented: false)
+                    }
                     
                     ZStack {
                         
