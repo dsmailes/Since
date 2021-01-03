@@ -56,6 +56,17 @@ struct Since_WidgetEntryView : View {
 }
 
 @main
+struct SinceWidgetsBundle: WidgetBundle {
+    var body: some Widget {
+        Since_Widget()
+        Since_Widget_1()
+        Since_Widget_2()
+        Since_Widget_3()
+        Since_Widget_4()
+    }
+    
+}
+
 struct Since_Widget: Widget {
     
     let kind: String = "Since_Widget"
@@ -65,12 +76,71 @@ struct Since_Widget: Widget {
             Since_WidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Since")
-        .description("Display your events using the Since widget.")
+        .description("Default Since Widget.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     
 }
 
+struct Since_Widget_1 : Widget {
+    
+    let kind: String = "Since_Widget_1"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 1)) { entry in
+            Since_WidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Since")
+        .description("Since Widget 2.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+    }
+    
+}
+
+struct Since_Widget_2: Widget {
+    
+    let kind: String = "Since_Widget_2"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 2)) { entry in
+            Since_WidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Since")
+        .description("Since Widget 3.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+    }
+    
+}
+
+struct Since_Widget_3: Widget {
+    
+    let kind: String = "Since_Widget_3"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 3)) { entry in
+            Since_WidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Since")
+        .description("Since Widget 4.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+    }
+    
+}
+
+struct Since_Widget_4: Widget {
+    
+    let kind: String = "Since_Widget_4"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 4)) { entry in
+            Since_WidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Since")
+        .description("Since Widget 5.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+    }
+    
+}
 
 
 struct Since_Widget_Previews: PreviewProvider {

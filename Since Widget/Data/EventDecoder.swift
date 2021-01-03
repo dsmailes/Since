@@ -13,13 +13,14 @@ public class EventDecoder {
     
     func decodeEvent(number: Int) -> WidgetSinceEvent {
         let decoder = JSONDecoder()
-        let url = AppGroup.since.containerURL.appendingPathComponent("widgetdata.json")
+        let dataTitle = "widgetdata" + String(number) + ".json"
+        let url = AppGroup.since.containerURL.appendingPathComponent(dataTitle)
         var data: Data
         do {
             data = try Data(contentsOf: url)
         } catch {
             debugPrint(error)
-            return WidgetSinceEvent(title: "Add an event in the app first", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
+            return WidgetSinceEvent(title: "Add an event for this widget in the app", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
         }
         do {
             let decodedData = try decoder.decode(WidgetSinceEvent.self, from: data)
@@ -27,7 +28,7 @@ public class EventDecoder {
             return decodedData
         } catch {
             debugPrint(error)
-            return WidgetSinceEvent(title: "Add an event in the app first", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
+            return WidgetSinceEvent(title: "Add an event for this widget in the app", date: Date(), image: nil, showYears: true, showDays: true, showHours: true, showMinutes: true)
         }
 
     }

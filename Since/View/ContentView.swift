@@ -107,7 +107,7 @@ struct ContentView: View {
             print(jsonData)
             self.acknowledgementShowing = true
             self.acknowledgementTitle = "Widget changed"
-            self.acknowledgementMessage = "You have set \(widgetEvent.title) as widget " + String(widgetNumber)
+            self.acknowledgementMessage = "You have set \(widgetEvent.title) as widget " + String(widgetNumber + 1)
             return
         } catch {
             print("Save widget error: \(error)")
