@@ -1,0 +1,29 @@
+{
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : true,
+      "internalID" : "DBF1C024",
+      "localizations" : [
+        {
+          "description" : "Unlocks up to five widgets",
+          "displayName" : "Widgets 2-5",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.mylearningapps.Since.more_widgets",
+      "referenceName" : "More Widgets",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 0
+  }
+}

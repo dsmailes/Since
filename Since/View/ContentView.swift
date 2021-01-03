@@ -11,6 +11,8 @@ import WidgetKit
 
 struct ContentView: View {
     
+    @StateObject var storeManager: StoreManager
+    
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \SinceEvent.date, ascending: true)], animation: .default)
@@ -18,6 +20,8 @@ struct ContentView: View {
     private var events: FetchedResults<SinceEvent>
     
     @State var addEventViewPresented: Bool
+    
+    @State var storeViewPresented: Bool
     
     @State private var acknowledgementShowing: Bool = false
     @State private var acknowledgementTitle: String = ""
@@ -34,24 +38,30 @@ struct ContentView: View {
                     }
                     .isDetailLink(true)
                     .contextMenu {
-                        Group {
                             Button("Set as widget 1", action: {
                                 self.saveWidgetData(widgetNumber : 0, item: item)
                             })
-                            Button("Set as widget 2", action: {
-                                self.saveWidgetData(widgetNumber : 1, item: item)
-                            })
-                            Button("Set as widget 3", action: {
-                                self.saveWidgetData(widgetNumber : 2, item: item)
-                            })
-                            Button("Set as widget 4", action: {
-                                self.saveWidgetData(widgetNumber : 3, item: item)
-                            })
-                            Button("Set as widget 5", action: {
-                                self.saveWidgetData(widgetNumber : 4, item: item)
-                            })
-                        }
-                        
+                            if UserDefaults.standard.bool(forKey: "com.mylearningapps.Since.more_widgets") {
+                                Button("Set as widget 2", action: {
+                                    self.saveWidgetData(widgetNumber : 1, item: item)
+                                })
+                                Button("Set as widget 3", action: {
+                                    self.saveWidgetData(widgetNumber : 2, item: item)
+                                })
+                                Button("Set as widget 4", action: {
+                                    self.saveWidgetData(widgetNumber : 3, item: item)
+                                })
+                                Button("Set as widget 5", action: {
+                                    self.saveWidgetData(widgetNumber : 4, item: item)
+                                })
+                            } else {
+                                Button("Unlock more", action: {
+                                    self.storeViewPresented.toggle()
+                                })
+                                Button("Restore Purchases", action: {
+                                    storeManager.restoreProducts()
+                                })
+                            }
                     }
  
                 }
@@ -63,8 +73,8 @@ struct ContentView: View {
             .background(Color.clear)
             .sheet(isPresented: $addEventViewPresented) {
                 AddEventView().environment(\.managedObjectContext, self.viewContext)
-            
             }
+            
         } // nav
         .alert(isPresented: $acknowledgementShowing) {
                     Alert(title: Text(acknowledgementTitle), message:
@@ -89,6 +99,9 @@ struct ContentView: View {
             
             
         )
+        .sheet(isPresented: $storeViewPresented) {
+            StoreView(storeManager: StoreManager())
+        }
 
     }
     
@@ -147,6 +160,6 @@ struct ContentView_Previews: PreviewProvider {
         dEvent.displayhours = true
         dEvent.displayminutes = true
         
-        return ContentView(addEventViewPresented: false).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        return ContentView(storeManager: StoreManager(), addEventViewPresented: false, storeViewPresented: false).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

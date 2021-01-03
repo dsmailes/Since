@@ -21,7 +21,7 @@ struct SplashView: View {
                     if isOnboarding {
                         OnboardingView()
                     } else {
-                        ContentView(addEventViewPresented: false)
+                        ContentView(storeManager: StoreManager(), addEventViewPresented: false, storeViewPresented: false)
                     }
                     
                     ZStack {

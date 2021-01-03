@@ -16,7 +16,7 @@ struct MainView: View {
     var body: some View {
             TabView() {
                 
-                ContentView(addEventViewPresented: false)
+                ContentView(storeManager: StoreManager(), addEventViewPresented: false, storeViewPresented: false)
                     .tabItem {
                         
                         Text("List")

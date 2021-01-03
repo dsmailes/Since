@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3493762225A1C7B90035D845 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493762125A1C7B90035D845 /* NotificationManager.swift */; };
 		3493762E25A1CC5D0035D845 /* EventDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493762625A1CBA00035D845 /* EventDecoder.swift */; };
+		3493764425A1DF480035D845 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3493764325A1DF480035D845 /* StoreKit.framework */; };
+		3493764825A1E1F80035D845 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493764725A1E1F80035D845 /* StoreManager.swift */; };
+		3493765225A214860035D845 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3493765125A214860035D845 /* StoreView.swift */; };
 		349C75D42548929D002605B0 /* CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75D32548929D002605B0 /* CenterCropped.swift */; };
 		349C75D7254892AE002605B0 /* CenterCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75D32548929D002605B0 /* CenterCropped.swift */; };
 		349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C75F2254988DA002605B0 /* KeyboardRemover.swift */; };
@@ -31,7 +34,6 @@
 		34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36212541EC230032D3A7 /* TimeFromDate.swift */; };
 		34BE36262541F5740032D3A7 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36252541F5740032D3A7 /* AddEventView.swift */; };
 		34BE36292541F69A0032D3A7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36282541F69A0032D3A7 /* MainView.swift */; };
-		34BE362F2541F8B30032D3A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE362E2541F8B30032D3A7 /* SettingsView.swift */; };
 		34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36322546E21A0032D3A7 /* ImagePicker.swift */; };
 		34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36392546E7C60032D3A7 /* ImageHandler.swift */; };
 		34BE3644254724910032D3A7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BE3643254724910032D3A7 /* WidgetKit.framework */; };
@@ -77,6 +79,10 @@
 /* Begin PBXFileReference section */
 		3493762125A1C7B90035D845 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3493762625A1CBA00035D845 /* EventDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDecoder.swift; sourceTree = "<group>"; };
+		3493764325A1DF480035D845 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3493764725A1E1F80035D845 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		3493764B25A20D350035D845 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		3493765125A214860035D845 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		349C75D32548929D002605B0 /* CenterCropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterCropped.swift; sourceTree = "<group>"; };
 		349C75F2254988DA002605B0 /* KeyboardRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRemover.swift; sourceTree = "<group>"; };
 		349C75FA25499341002605B0 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
@@ -100,7 +106,6 @@
 		34BE36212541EC230032D3A7 /* TimeFromDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFromDate.swift; sourceTree = "<group>"; };
 		34BE36252541F5740032D3A7 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		34BE36282541F69A0032D3A7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		34BE362E2541F8B30032D3A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34BE36322546E21A0032D3A7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		34BE36392546E7C60032D3A7 /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		34BE3641254724910032D3A7 /* Since WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Since WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3493764425A1DF480035D845 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +219,8 @@
 				34BE36392546E7C60032D3A7 /* ImageHandler.swift */,
 				349C75FA25499341002605B0 /* Size.swift */,
 				3493762125A1C7B90035D845 /* NotificationManager.swift */,
+				3493764725A1E1F80035D845 /* StoreManager.swift */,
+				3493764B25A20D350035D845 /* Configuration.storekit */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -222,9 +230,9 @@
 			children = (
 				34BE36022541EA420032D3A7 /* ContentView.swift */,
 				349C760A254AC950002605B0 /* SplashView.swift */,
+				3493765125A214860035D845 /* StoreView.swift */,
 				34BE361C2541EBFA0032D3A7 /* SinceItemListView.swift */,
 				34BE36252541F5740032D3A7 /* AddEventView.swift */,
-				34BE362E2541F8B30032D3A7 /* SettingsView.swift */,
 				34BE36322546E21A0032D3A7 /* ImagePicker.swift */,
 				349C7614254AF297002605B0 /* EditItemView.swift */,
 				349C7621254B24D1002605B0 /* CustomTabView.swift */,
@@ -261,6 +269,7 @@
 		34BE3642254724910032D3A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3493764325A1DF480035D845 /* StoreKit.framework */,
 				34BE3643254724910032D3A7 /* WidgetKit.framework */,
 				34BE3645254724910032D3A7 /* SwiftUI.framework */,
 				34BE368625472DAD0032D3A7 /* IntentsUI.framework */,
@@ -414,7 +423,6 @@
 				34BE361D2541EBFA0032D3A7 /* SinceItemListView.swift in Sources */,
 				349C7633254B3209002605B0 /* OnboardingData.swift in Sources */,
 				34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */,
-				34BE362F2541F8B30032D3A7 /* SettingsView.swift in Sources */,
 				349C75FB25499341002605B0 /* Size.swift in Sources */,
 				34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */,
 				34BE360A2541EA430032D3A7 /* Persistence.swift in Sources */,
@@ -422,7 +430,9 @@
 				34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */,
 				34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */,
 				349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */,
+				3493764825A1E1F80035D845 /* StoreManager.swift in Sources */,
 				349C7639254B372A002605B0 /* StartButtonView.swift in Sources */,
+				3493765225A214860035D845 /* StoreView.swift in Sources */,
 				349C760B254AC951002605B0 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
