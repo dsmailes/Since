@@ -63,12 +63,7 @@ struct CustomTabView<Content>: View where Content: View {
     }
 
     func getTabBarHeight(screenGeometry: GeometryProxy) -> CGFloat {
-        // https://medium.com/@hacknicity/ipad-navigation-bar-and-toolbar-height-changes-in-ios-12-91c5766809f4
-        // ipad 50
-        // iphone && portrait 49
-        // iphone && portrait && bottom safety 83
-        // iphone && landscape 32
-        // iphone && landscape && bottom safety 53
+
         if UIDevice.current.userInterfaceIdiom == .pad {
             return 50 + screenGeometry.safeAreaInsets.bottom
         } else if UIDevice.current.userInterfaceIdiom == .phone {

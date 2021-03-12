@@ -58,8 +58,6 @@ class ImageHandler {
     }
     
     func filePath(forKey key: String) -> URL? {
-        //let fileManager = FileManager.default
-        //guard let documentURL = fileManager.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
         
         let documentURL = AppGroup.since.containerURL
         
