@@ -76,8 +76,8 @@ struct Since_Widget: Widget {
         StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 0)) { entry in
             Since_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Since")
-        .description("Default Since Widget.")
+        .configurationDisplayName("Since 1")
+        .description("Since Widget 1")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     
@@ -91,8 +91,8 @@ struct Since_Widget_1 : Widget {
         StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 1)) { entry in
             Since_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Since")
-        .description("Since Widget 2.")
+        .configurationDisplayName("Since 2")
+        .description("Since Widget 2")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     
@@ -106,8 +106,8 @@ struct Since_Widget_2: Widget {
         StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 2)) { entry in
             Since_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Since")
-        .description("Since Widget 3.")
+        .configurationDisplayName("Since 3")
+        .description("Since Widget 3")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     
@@ -121,8 +121,8 @@ struct Since_Widget_3: Widget {
         StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 3)) { entry in
             Since_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Since")
-        .description("Since Widget 4.")
+        .configurationDisplayName("Since 4")
+        .description("Since Widget 4")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     
@@ -136,8 +136,8 @@ struct Since_Widget_4: Widget {
         StaticConfiguration(kind: kind, provider: Provider(widgetNumber: 4)) { entry in
             Since_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Since")
-        .description("Since Widget 5.")
+        .configurationDisplayName("Since 5")
+        .description("Since Widget 5")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     

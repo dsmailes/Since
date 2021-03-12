@@ -35,7 +35,7 @@ struct EditItemView: View {
     
     func saveEvent() {
         if self.title != "" {
-            if inputImage != nil {
+            if inputImage != nil && event.image != nil {
                 ImageHandler.sharedInstance.store(image: inputImage!, forKey: event.image!, withStorageType: .fileSystem)
             }
             
