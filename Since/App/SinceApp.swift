@@ -17,6 +17,7 @@ struct SinceApp: App {
     
     var body: some Scene {
         WindowGroup {
+            //display the splashview then show the main application window
             SplashView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onAppear(perform: {

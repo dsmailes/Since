@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension UIApplication {
+    //detects any tap outside of a text box to rewmove the keyboard on the add / editing view
     func addTapGestureRecognizer() {
         guard let window = windows.first else { return }
         let tapGesture = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))

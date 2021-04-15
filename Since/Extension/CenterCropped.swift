@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension Image {
+    //crops an image to its centre so that it is aligned correctly on the widget / table
     func centerCropped() -> some View {
         GeometryReader { geo in
             self

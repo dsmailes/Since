@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+// data for the onboarding screen
 let onboardingData: [OnboardingItem] = [
 
     OnboardingItem(id: UUID.init(), title: "Adding events", information: "To add events, tap the + button", image: "plus.circle", final: false),

@@ -15,6 +15,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
     
     var request: SKProductsRequest!
     
+    //receive and process list of products
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         print("did receive response")
         
@@ -41,6 +42,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
         print("Request did fail: \(error)")
     }
     
+    //request list of products
     func getProducts(productIDs: [String]) {
         print("requesting products")
         
@@ -50,6 +52,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
         
     }
     
+    //return the price as a localised string
     func returnPriceString(product: SKProduct) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.formatterBehavior = .behavior10_4
@@ -63,6 +66,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
         
     }
     
+    //process the payment queue
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
@@ -86,6 +90,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
         }
     }
     
+    //purchase product
     func purchaseProduct(product: SKProduct) {
         if SKPaymentQueue.canMakePayments() {
             let payment = SKPayment(product: product)
@@ -95,6 +100,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
         }
     }
     
+    //restore purchase
     func restoreProducts() {
         print("Restoring products ...")
         SKPaymentQueue.default().restoreCompletedTransactions()
