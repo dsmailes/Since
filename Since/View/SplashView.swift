@@ -39,18 +39,18 @@ struct SplashView: View {
                         // setting width to avoid over size
                             .frame(width: UIScreen.main.bounds.width)
                         
-                    }
+                    } // Zstack
                     .ignoresSafeArea(.all, edges: .all)
                     .onAppear(perform: animateSplash)
                     // hiding view after finished
                     .opacity(endSplash ? 0 : 1)
                     
-                }
+                } // ZStack
             
-        }
+        } // Vstack
 
     }
-    
+    //animate the splash view
     func animateSplash() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {

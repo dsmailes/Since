@@ -23,6 +23,8 @@ struct ContentView: View {
     
     @State var storeViewPresented: Bool
     
+    @State var showAddButton: Bool = true
+    
     @State private var acknowledgementShowing: Bool = false
     @State private var acknowledgementTitle: String = ""
     @State private var acknowledgementMessage: String = ""
@@ -62,18 +64,21 @@ struct ContentView: View {
                                     storeManager.restoreProducts()
                                 })
                             }
-                    }
+                    } // context menu
+                    
  
                 }
                 .onDelete(perform: deleteItems)
                 
+                
             } // List
             .listStyle(InsetListStyle())
-            .navigationBarTitle("Since...", displayMode: .large)
+            .navigationBarTitle("Since...", displayMode: .inline)
             .background(Color.clear)
             .sheet(isPresented: $addEventViewPresented) {
                 AddEventView().environment(\.managedObjectContext, self.viewContext)
             }
+            
             
         } // nav
         .alert(isPresented: $acknowledgementShowing) {
@@ -82,15 +87,22 @@ struct ContentView: View {
             }
         .overlay(
             ZStack {
-                Button(action: {
-                    self.addEventViewPresented.toggle()
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .background(Circle()
-                                        .fill(Color(UIColor.systemBackground)))
-                        .frame(width: 64, height: 64, alignment: .center)
+                //show the add button if not in the add/editing view
+                if self.showAddButton {
+                    Button(action: {
+                        self.addEventViewPresented.toggle()
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .background(Circle()
+                                            .fill(Color(UIColor.systemBackground)))
+                            .frame(width: 64, height: 64, alignment: .center)
+                    }
+                }
+                //show pulse if no events are added to prompt user
+                if events.count == 0 {
+                    ButtonPulseView()
                 }
             } // zstack
             .padding(.bottom, 15)
@@ -105,6 +117,7 @@ struct ContentView: View {
 
     }
     
+    //encode and transfer data to widget
     private func saveWidgetData(widgetNumber: Int, item: SinceEvent) {
         
         let widgetEvent = WidgetSinceEvent(title: item.title!, date: item.date!, image: item.image ?? "sincelogo", showYears: item.displayyears, showDays: item.displaydays, showHours: item.displayhours, showMinutes: item.displayminutes)
@@ -117,17 +130,21 @@ struct ContentView: View {
             
             try jsonData.write(to: url)
             WidgetCenter.shared.reloadAllTimelines()
-            print(jsonData)
             self.acknowledgementShowing = true
             self.acknowledgementTitle = "Widget changed"
             self.acknowledgementMessage = "You have set \(widgetEvent.title) as widget " + String(widgetNumber + 1)
             return
         } catch {
-            print("Save widget error: \(error)")
+            
+            self.acknowledgementShowing = true
+            self.acknowledgementTitle = "Widget error"
+            self.acknowledgementMessage = "Save widget error: \(error)"
+            return
         }
         
     }
 
+    //delete event from list
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { events[$0] }.forEach(viewContext.delete)
@@ -135,8 +152,10 @@ struct ContentView: View {
             do {
                 try viewContext.save()
             } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                self.acknowledgementShowing = true
+                self.acknowledgementTitle = "Delete error"
+                self.acknowledgementMessage = "Delete widget error: \(error)"
+                return
             }
         }
     }
@@ -159,5 +178,6 @@ struct ContentView_Previews: PreviewProvider {
         dEvent.displayminutes = true
         
         return ContentView(storeManager: StoreManager(), addEventViewPresented: false, storeViewPresented: false).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .preferredColorScheme(.light)
     }
 }

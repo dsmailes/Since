@@ -21,6 +21,8 @@
 		349C762E254B3193002605B0 /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C762D254B3193002605B0 /* OnboardingItem.swift */; };
 		349C7633254B3209002605B0 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7632254B3209002605B0 /* OnboardingData.swift */; };
 		349C7639254B372A002605B0 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7638254B372A002605B0 /* StartButtonView.swift */; };
+		34BDCE46262EB83500D0054E /* BackgroundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE45262EB83500D0054E /* BackgroundCard.swift */; };
+		34BDCE4C263089DE00D0054E /* ButtonPulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */; };
 		34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36002541EA420032D3A7 /* SinceApp.swift */; };
 		34BE36032541EA420032D3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36022541EA420032D3A7 /* ContentView.swift */; };
 		34BE36052541EA430032D3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE36042541EA430032D3A7 /* Assets.xcassets */; };
@@ -88,6 +90,8 @@
 		349C762D254B3193002605B0 /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
 		349C7632254B3209002605B0 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		349C7638254B372A002605B0 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
+		34BDCE45262EB83500D0054E /* BackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCard.swift; sourceTree = "<group>"; };
+		34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPulseView.swift; sourceTree = "<group>"; };
 		34BE35FD2541EA420032D3A7 /* Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Since.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE36002541EA420032D3A7 /* SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinceApp.swift; sourceTree = "<group>"; };
 		34BE36022541EA420032D3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				34BE36022541EA420032D3A7 /* ContentView.swift */,
+				34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */,
 				349C760A254AC950002605B0 /* SplashView.swift */,
 				3493765125A214860035D845 /* StoreView.swift */,
 				34BE361C2541EBFA0032D3A7 /* SinceItemListView.swift */,
@@ -230,6 +235,7 @@
 				349C7625254B3112002605B0 /* OnboardingView.swift */,
 				349C7629254B3177002605B0 /* OnboardingCardView.swift */,
 				349C7638254B372A002605B0 /* StartButtonView.swift */,
+				34BDCE45262EB83500D0054E /* BackgroundCard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -416,9 +422,11 @@
 				34BE360A2541EA430032D3A7 /* Persistence.swift in Sources */,
 				34BE36032541EA420032D3A7 /* ContentView.swift in Sources */,
 				34BE363A2546E7C60032D3A7 /* ImageHandler.swift in Sources */,
+				34BDCE46262EB83500D0054E /* BackgroundCard.swift in Sources */,
 				34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */,
 				349C75F3254988DA002605B0 /* KeyboardRemover.swift in Sources */,
 				3493764825A1E1F80035D845 /* StoreManager.swift in Sources */,
+				34BDCE4C263089DE00D0054E /* ButtonPulseView.swift in Sources */,
 				349C7639254B372A002605B0 /* StartButtonView.swift in Sources */,
 				3493765225A214860035D845 /* StoreView.swift in Sources */,
 				349C760B254AC951002605B0 /* SplashView.swift in Sources */,
@@ -585,7 +593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -611,7 +619,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mylearningapps.Since;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -634,7 +642,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mylearningapps.Since.Since-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -658,7 +666,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mylearningapps.Since.Since-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

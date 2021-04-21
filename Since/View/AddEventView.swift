@@ -30,9 +30,7 @@ struct AddEventView: View {
     @State private var errorShowing: Bool = false
     @State private var errorTitle: String = ""
     @State private var errorMessage: String = ""
-    
-    //private var imageHandler = ImageHandler()
-    
+        
     func loadImage() {
         guard let inputImage = inputImage else { return }
         eventImage = Image(uiImage: inputImage)

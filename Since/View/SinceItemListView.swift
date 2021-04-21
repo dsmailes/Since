@@ -23,14 +23,15 @@ struct SinceItemListView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 90, height: 90)
-                        .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        
                         
                 } else {
                     Image("sincelogo")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 90, height: 90)
-                        .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                         
                 }
                 
@@ -39,11 +40,11 @@ struct SinceItemListView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 90, height: 90)
-                    .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
                     
             }
             
-            //Spacer()
+            Spacer()
             
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
@@ -70,7 +71,9 @@ struct SinceItemListView: View {
             } // VStack
             
         } // HStack
+        .modifier(BackgroundCard())
     }
+    
 }
 
 struct SinceItemListView_Previews: PreviewProvider {
