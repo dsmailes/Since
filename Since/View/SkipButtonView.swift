@@ -1,14 +1,13 @@
 //
-//  StartButtonView.swift
-//  Fructus
+//  SkipButtonView.swift
+//  Since
 //
-//  Created by David Smailes on 08/10/2020.
+//  Created by David Smailes on 22/04/2021.
 //
 
 import SwiftUI
 
-struct StartButtonView: View {
-    // MARK - PROPERTIES
+struct SkipButtonView: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool?
     
     // MARK - BODY
@@ -17,10 +16,9 @@ struct StartButtonView: View {
             isOnboarding = false
         }) {
             HStack(spacing: 8) {
-                Text("GO")
+                Text("SKIP")
                     .font(.title)
                     .fontWeight(.heavy)
-                
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
@@ -32,12 +30,8 @@ struct StartButtonView: View {
     }
 }
 
-// MARK - PREVIEW
-
-struct StartButtonView_Previews: PreviewProvider {
+struct SkipButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        StartButtonView()
-            .preferredColorScheme(.light)
-            .previewLayout(.sizeThatFits)
+        SkipButtonView()
     }
 }

@@ -25,19 +25,29 @@ struct OnboardingCardView: View {
                     .scaleEffect(isAnimating ? 1.0 : 0.6)
                     .padding()
                 
+                Spacer()
+                
                 Text(onboardingItem.title)
                     .font(.title)
                     .fontWeight(.heavy)
                     .shadow(color: Color(red: 0, green:0, blue: 0, opacity: 0.15), radius: 2, x: 2, y: 2)
+                
+                Spacer()
                 
                 Text(onboardingItem.information)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 16)
                     .frame(maxWidth: 480)
                 
+                Spacer()
+                
                 if onboardingItem.final {
                     StartButtonView()
+                } else {
+                    SkipButtonView()
                 }
+                
+                Spacer()
                 
             } // vstack
             
