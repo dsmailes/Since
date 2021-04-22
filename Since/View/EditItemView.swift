@@ -63,7 +63,7 @@ struct EditItemView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            
                 VStack {
                     Form {
                         Section(header: Text("What happened?")) {
@@ -141,7 +141,6 @@ struct EditItemView: View {
                 .alert(isPresented: $errorShowing) {
                     Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
                 }
-            } // ZStack
             .navigationBarTitle("", displayMode: .inline)
             .edgesIgnoringSafeArea([.top, .bottom])
             .navigationBarHidden(true)
