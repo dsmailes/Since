@@ -92,12 +92,7 @@ struct ContentView: View {
                     Button(action: {
                         self.addEventViewPresented.toggle()
                     }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .background(Circle()
-                                            .fill(Color(UIColor.systemBackground)))
-                            .frame(width: 64, height: 64, alignment: .center)
+                        AddButtonView()
                     }
                 }
                 //show pulse if no events are added to prompt user

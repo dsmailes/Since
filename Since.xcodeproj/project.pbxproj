@@ -23,6 +23,7 @@
 		349C7639254B372A002605B0 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349C7638254B372A002605B0 /* StartButtonView.swift */; };
 		34BDCE46262EB83500D0054E /* BackgroundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE45262EB83500D0054E /* BackgroundCard.swift */; };
 		34BDCE4C263089DE00D0054E /* ButtonPulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */; };
+		34BDCE602631651E00D0054E /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE5F2631651E00D0054E /* AddButtonView.swift */; };
 		34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36002541EA420032D3A7 /* SinceApp.swift */; };
 		34BE36032541EA420032D3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36022541EA420032D3A7 /* ContentView.swift */; };
 		34BE36052541EA430032D3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE36042541EA430032D3A7 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		349C7638254B372A002605B0 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
 		34BDCE45262EB83500D0054E /* BackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCard.swift; sourceTree = "<group>"; };
 		34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPulseView.swift; sourceTree = "<group>"; };
+		34BDCE5F2631651E00D0054E /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		34BE35FD2541EA420032D3A7 /* Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Since.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE36002541EA420032D3A7 /* SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinceApp.swift; sourceTree = "<group>"; };
 		34BE36022541EA420032D3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				34BE36022541EA420032D3A7 /* ContentView.swift */,
+				34BDCE5F2631651E00D0054E /* AddButtonView.swift */,
 				34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */,
 				349C760A254AC950002605B0 /* SplashView.swift */,
 				3493765125A214860035D845 /* StoreView.swift */,
@@ -429,6 +432,7 @@
 				34BDCE4C263089DE00D0054E /* ButtonPulseView.swift in Sources */,
 				349C7639254B372A002605B0 /* StartButtonView.swift in Sources */,
 				3493765225A214860035D845 /* StoreView.swift in Sources */,
+				34BDCE602631651E00D0054E /* AddButtonView.swift in Sources */,
 				349C760B254AC951002605B0 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
