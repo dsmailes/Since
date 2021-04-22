@@ -26,6 +26,8 @@ struct SinceWidgetView: View {
                             .centerCropped()
                         
                         VStack(alignment: .leading) {
+                            
+                            Spacer()
                         
                             Text(event.title)
                             .fontWeight(.bold)
@@ -34,6 +36,8 @@ struct SinceWidgetView: View {
                             .multilineTextAlignment(.center)
                             .background(Color(UIColor.systemBackground))
                             .lineLimit(1)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
                             
                         Text(event.date, style: .relative)
                             .fontWeight(.semibold)
@@ -41,6 +45,8 @@ struct SinceWidgetView: View {
                             .background(Color(UIColor.systemBackground))
                             .lineLimit(2)
                             .multilineTextAlignment(.center)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
                         
                         Spacer()
                             
@@ -65,6 +71,8 @@ struct SinceWidgetView: View {
                             .multilineTextAlignment(.center)
                             .background(Color(UIColor.systemBackground))
                             .lineLimit(1)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
                             
                         Text(event.date, style: .relative)
                             .fontWeight(.semibold)
@@ -72,6 +80,8 @@ struct SinceWidgetView: View {
                             .background(Color(UIColor.systemBackground))
                             .lineLimit(1)
                             .multilineTextAlignment(.center)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
                         
                         Spacer()
                             
@@ -93,6 +103,8 @@ struct SinceWidgetView: View {
                             .multilineTextAlignment(.center)
                             .background(Color(UIColor.systemBackground))
                             .lineLimit(1)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
                             
                         Text(event.date, style: .relative)
                             .fontWeight(.semibold)
@@ -100,6 +112,8 @@ struct SinceWidgetView: View {
                             .background(Color(UIColor.systemBackground))
                             .lineLimit(2)
                             .multilineTextAlignment(.center)
+                            .font(.system(size: 500))
+                            .minimumScaleFactor(0.01)
                         
                         Spacer()
                             
