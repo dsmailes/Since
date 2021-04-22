@@ -12,20 +12,32 @@ struct SinceItemListView: View {
     
     @ObservedObject var event: SinceEvent
     
+    @AppStorage("demonstratedLongPress") var demonstratedLongPress: Bool = false
+    
     var timeString: String = ""
     
     var body: some View {
-        HStack(alignment: .center, spacing: 16) {
-            if event.image != nil {
-                
-                if let img = ImageHandler.sharedInstance.retrieveImage(forKey: event.image!, inStorageType: .fileSystem) {
-                    Image(uiImage: img)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 90, height: 90)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                        
-                        
+        ZStack {
+            HStack(alignment: .center, spacing: 16) {
+                if event.image != nil {
+                    
+                    if let img = ImageHandler.sharedInstance.retrieveImage(forKey: event.image!, inStorageType: .fileSystem) {
+                        Image(uiImage: img)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 90, height: 90)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            
+                            
+                    } else {
+                        Image("sincelogo")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 90, height: 90)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            
+                    }
+                    
                 } else {
                     Image("sincelogo")
                         .resizable()
@@ -35,43 +47,41 @@ struct SinceItemListView: View {
                         
                 }
                 
-            } else {
-                Image("sincelogo")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 90, height: 90)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Spacer()
+                        
+                        Text(verbatim: event.title ?? "")
+                            .font(.largeTitle)
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.center)
+                        
+                        Spacer()
+                        
+                    } // hstack
+                
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Text(event.date ?? Date(), style: .relative)
+                            
+                        } // vstack
+                        Spacer()
+                    } // hstack
                     
+                } // VStack
+                
+            } // HStack
+            .modifier(BackgroundCard())
+            
+            if !demonstratedLongPress {
+                ListItemPulseView()
             }
             
-            Spacer()
-            
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Spacer()
-                    
-                    Text(verbatim: event.title ?? "")
-                        .font(.largeTitle)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.center)
-                    
-                    Spacer()
-                    
-                } // hstack
-            
-                HStack {
-                    Spacer()
-                    VStack {
-                        Text(event.date ?? Date(), style: .relative)
-                        
-                    } // vstack
-                    Spacer()
-                } // hstack
-                
-            } // VStack
-            
-        } // HStack
-        .modifier(BackgroundCard())
+        } // zstack
+
     }
     
 }

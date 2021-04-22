@@ -25,6 +25,7 @@
 		34BDCE4C263089DE00D0054E /* ButtonPulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */; };
 		34BDCE602631651E00D0054E /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE5F2631651E00D0054E /* AddButtonView.swift */; };
 		34BDCE642631677000D0054E /* SkipButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE632631677000D0054E /* SkipButtonView.swift */; };
+		34BDCE6826316FD200D0054E /* ListItemPulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDCE6726316FD200D0054E /* ListItemPulseView.swift */; };
 		34BE36012541EA420032D3A7 /* SinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36002541EA420032D3A7 /* SinceApp.swift */; };
 		34BE36032541EA420032D3A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE36022541EA420032D3A7 /* ContentView.swift */; };
 		34BE36052541EA430032D3A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE36042541EA430032D3A7 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		34BDCE4B263089DE00D0054E /* ButtonPulseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPulseView.swift; sourceTree = "<group>"; };
 		34BDCE5F2631651E00D0054E /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		34BDCE632631677000D0054E /* SkipButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButtonView.swift; sourceTree = "<group>"; };
+		34BDCE6726316FD200D0054E /* ListItemPulseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPulseView.swift; sourceTree = "<group>"; };
 		34BE35FD2541EA420032D3A7 /* Since.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Since.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE36002541EA420032D3A7 /* SinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinceApp.swift; sourceTree = "<group>"; };
 		34BE36022541EA420032D3A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				349C760A254AC950002605B0 /* SplashView.swift */,
 				3493765125A214860035D845 /* StoreView.swift */,
 				34BE361C2541EBFA0032D3A7 /* SinceItemListView.swift */,
+				34BDCE6726316FD200D0054E /* ListItemPulseView.swift */,
 				34BE36252541F5740032D3A7 /* AddEventView.swift */,
 				34BE36322546E21A0032D3A7 /* ImagePicker.swift */,
 				349C7614254AF297002605B0 /* EditItemView.swift */,
@@ -422,6 +425,7 @@
 				34C63C42259CAB1F003B12DB /* WikiSinceEvent.swift in Sources */,
 				349C75D42548929D002605B0 /* CenterCropped.swift in Sources */,
 				34BE361D2541EBFA0032D3A7 /* SinceItemListView.swift in Sources */,
+				34BDCE6826316FD200D0054E /* ListItemPulseView.swift in Sources */,
 				349C7633254B3209002605B0 /* OnboardingData.swift in Sources */,
 				34BE36222541EC230032D3A7 /* TimeFromDate.swift in Sources */,
 				34BE36332546E21A0032D3A7 /* ImagePicker.swift in Sources */,

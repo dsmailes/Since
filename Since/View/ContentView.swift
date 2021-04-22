@@ -11,6 +11,8 @@ import WidgetKit
 
 struct ContentView: View {
     
+    @AppStorage("demonstratedLongPress") var demonstratedLongPress: Bool?
+    
     @StateObject var storeManager: StoreManager
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -114,6 +116,8 @@ struct ContentView: View {
     
     //encode and transfer data to widget
     private func saveWidgetData(widgetNumber: Int, item: SinceEvent) {
+        
+        demonstratedLongPress = true
         
         let widgetEvent = WidgetSinceEvent(title: item.title!, date: item.date!, image: item.image ?? "sincelogo", showYears: item.displayyears, showDays: item.displaydays, showHours: item.displayhours, showMinutes: item.displayminutes)
                 
